@@ -13,3 +13,10 @@ config_version=5
 config/name="Kitty_Rush"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/icon.svg"
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Walls"
+2d_physics/layer_3="Background"
+2d_physics/layer_4="Fire"
