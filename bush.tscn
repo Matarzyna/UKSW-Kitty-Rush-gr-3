@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqet34760vybi"]
+
+[ext_resource type="Texture2D" uid="uid://b1v18wtmy1frx" path="res://assets/Tiny Wonder Forest 1.0/items&objects/summer and spring items.png" id="1_437mb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swp88"]
+size = Vector2(22, 16)
+
+[node name="Bush" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7.10543e-15, -5.96046e-08)
+scale = Vector2(0.36875, 0.347039)
+texture = ExtResource("1_437mb")
+region_enabled = true
+region_rect = Rect2(161.153, 210.548, 30.0328, 19.1514)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("RectangleShape2D_swp88")
