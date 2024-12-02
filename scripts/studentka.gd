@@ -2,7 +2,7 @@
 
 extends CharacterBody2D
 @export var tile_size = 16  # Rozmiar kafelka (w pikselach)
-@export var move_time = 0.5  # Czas ruchu w sekundach
+@export var move_time = 0.3  # Czas ruchu w sekundach
 @onready var animated_sprite_2d = $AnimatedSprite2D  # Ścieżka do AnimatedSprite2D
 @onready var ray = $RayCast2D
 
@@ -28,26 +28,28 @@ func _physics_process(delta):
 		handle_input()
 
 func handle_input():
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_pressed("up"):
 		ray.set_target_position(Vector2.UP * 16)
 		ray.force_raycast_update()
 		if !ray.is_colliding():
 			start_movement(Vector2.UP, "up")
-	elif Input.is_action_just_pressed("ui_down"):
+	elif Input.is_action_pressed("down"):
 		ray.set_target_position(Vector2.DOWN * 16)
 		ray.force_raycast_update()
 		if !ray.is_colliding():
-			start_movement(Vector2.DOWN, "face_down")
-	elif Input.is_action_just_pressed("ui_left"):
+			start_movement(Vector2.DOWN, "down")
+	elif Input.is_action_pressed("left"):
 		ray.set_target_position(Vector2.LEFT * 16)
 		ray.force_raycast_update()
 		if !ray.is_colliding():
 			start_movement(Vector2.LEFT, "left")
-	elif Input.is_action_just_pressed("ui_right"):
+	elif Input.is_action_pressed("right"):
 		ray.set_target_position(Vector2.RIGHT * 16)
 		ray.force_raycast_update()
 		if !ray.is_colliding():
 			start_movement(Vector2.RIGHT, "right")
+	else:
+		animated_sprite_2d.play("default")
 
 func start_movement(direction: Vector2, animation: String):
 	is_moving = true
