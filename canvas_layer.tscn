@@ -1,0 +1,140 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkg5oq12g8h0l"]
+
+[ext_resource type="Texture2D" uid="uid://cjrkkj8u6a6vj" path="res://assets/Sprites/12-Live and Coins/Live Bar.png" id="1_3euw1"]
+[ext_resource type="Texture2D" uid="uid://c8wcxcinb4kil" path="res://assets/Sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="2_7l5ot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ui3x"]
+atlas = ExtResource("2_7l5ot")
+region = Rect2(54, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eshpk"]
+atlas = ExtResource("2_7l5ot")
+region = Rect2(72, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auo40"]
+atlas = ExtResource("2_7l5ot")
+region = Rect2(90, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp5w4"]
+atlas = ExtResource("2_7l5ot")
+region = Rect2(108, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51cwd"]
+atlas = ExtResource("2_7l5ot")
+region = Rect2(126, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esfo8"]
+atlas = ExtResource("2_7l5ot")
+region = Rect2(0, 0, 18, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qbosy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ui3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eshpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auo40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp5w4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51cwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esfo8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 256.0
+offset_bottom = 85.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+offset_right = 197.0
+offset_bottom = 65.0
+scale = Vector2(1.3, 1.3)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Container/HBoxContainer"]
+position = Vector2(32, 32)
+scale = Vector2(2.37037, 1.88235)
+texture = ExtResource("1_3euw1")
+region_enabled = true
+region_rect = Rect2(0, 0, 27.2257, 34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/HBoxContainer"]
+position = Vector2(76, 32)
+scale = Vector2(2.18182, 1.88235)
+texture = ExtResource("1_3euw1")
+region_enabled = true
+region_rect = Rect2(27.5, 0, 11, 34)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Container/HBoxContainer"]
+position = Vector2(100, 32)
+scale = Vector2(2.18182, 1.88235)
+texture = ExtResource("1_3euw1")
+region_enabled = true
+region_rect = Rect2(27.5, 0, 11, 34)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Container/HBoxContainer"]
+position = Vector2(124, 32)
+scale = Vector2(2.18182, 1.88235)
+texture = ExtResource("1_3euw1")
+region_enabled = true
+region_rect = Rect2(27.5, 0, 11, 34)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Container/HBoxContainer"]
+position = Vector2(166, 32)
+scale = Vector2(2.18182, 1.88235)
+texture = ExtResource("1_3euw1")
+region_enabled = true
+region_rect = Rect2(38.5, 0, 27.5122, 34)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+offset_right = 256.0
+offset_bottom = 85.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Container/HBoxContainer2"]
+position = Vector2(62.5, 41)
+scale = Vector2(2.5, 2)
+sprite_frames = SubResource("SpriteFrames_qbosy")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Container/HBoxContainer2"]
+position = Vector2(94, 41)
+scale = Vector2(2.5, 2)
+sprite_frames = SubResource("SpriteFrames_qbosy")
+autoplay = "default"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Container/HBoxContainer2"]
+position = Vector2(125.05, 41)
+scale = Vector2(2.5, 2)
+sprite_frames = SubResource("SpriteFrames_qbosy")
+autoplay = "default"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Container/HBoxContainer2"]
+position = Vector2(156.25, 41)
+scale = Vector2(2.5, 2)
+sprite_frames = SubResource("SpriteFrames_qbosy")
+autoplay = "default"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Container/HBoxContainer2"]
+position = Vector2(187.4, 41)
+scale = Vector2(2.5, 2)
+sprite_frames = SubResource("SpriteFrames_qbosy")
+autoplay = "default"
