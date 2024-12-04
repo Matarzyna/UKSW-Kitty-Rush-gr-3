@@ -2388,3 +2388,6 @@ position = Vector2(16, -16)
 
 [node name="Bush6" parent="Node2D" instance=ExtResource("7_pcpim")]
 position = Vector2(16, -32)
+
+[node name="Bush" parent="." instance=ExtResource("7_pcpim")]
+position = Vector2(-88, 80)
