@@ -12,6 +12,7 @@ var move_direction = Vector2.ZERO  # Kierunek ruchu
 var move_timer = 0.0  # Licznik czasu dla ruchu
 var start_position = Vector2.ZERO  # Pozycja początkowa ruchu
 
+var death_position = Vector2(-104,80) #Pozycja checkpointu
 
 func _physics_process(delta):
 	if is_moving:
@@ -27,6 +28,7 @@ func _physics_process(delta):
 	else:
 		# Sprawdź wejście gracza
 		handle_input()
+		
 
 func handle_input():
 	if Input.is_action_pressed("ui_up"):

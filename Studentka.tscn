@@ -180,7 +180,7 @@ animations = [{
 radius = 2.5
 height = 12.0
 
-[node name="Studentka" type="CharacterBody2D"]
+[node name="Studentka" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_h55m5")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
