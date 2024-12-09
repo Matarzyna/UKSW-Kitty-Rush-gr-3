@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=24 format=4 uid="uid://cg2de6wjkemhw"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_bb18c"]
 [ext_resource type="Texture2D" uid="uid://b6neg4hgcnti1" path="res://assets/sprite sheet 16x16px seamless textures.png" id="1_or2n3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ddmbailvjslmc" path="res://Studentka.tscn" id="6_5eior"]
 [ext_resource type="PackedScene" uid="uid://c5tr26hihx4c8" path="res://bush.tscn" id="7_pcpim"]
 [ext_resource type="Script" path="res://scripts/bush.gd" id="8_p010d"]
+[ext_resource type="PackedScene" uid="uid://d3hl6a4pm2dfr" path="res://flag_checkpoint.tscn" id="9_efkol"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1f63"]
 texture = ExtResource("3_1g3ng")
@@ -2375,3 +2376,6 @@ script = ExtResource("8_p010d")
 
 [node name="Studentka" parent="." instance=ExtResource("6_5eior")]
 position = Vector2(-104, 80)
+
+[node name="flag" parent="." instance=ExtResource("9_efkol")]
+position = Vector2(296, 160)
