@@ -1,5 +1,3 @@
-
-
 extends CharacterBody2D
 @export var tile_size = 16  # Rozmiar kafelka (w pikselach)
 @export var move_time = 0.3  # Czas ruchu w sekundach
@@ -72,13 +70,9 @@ func start_movement(direction: Vector2, animation: String):
 	start_position = global_position
 	animated_sprite_2d.play(animation)
 
-	
+func reset_to_checkpoint():
+	global_position = death_position
 
-
-
-
-
-
-
-
+func force_death():
+	reset_to_checkpoint()
 	
