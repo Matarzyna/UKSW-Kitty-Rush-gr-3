@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdwdswbqlpimj"]
+[gd_scene load_steps=12 format=3 uid="uid://cb2xd58iuf5bi"]
 
 [ext_resource type="Texture2D" uid="uid://belf13a0bosdb" path="res://assets/Sprites/PurpleDungeon/slime.png" id="1_455b2"]
-[ext_resource type="Script" path="res://scripts/wrogowie.gd" id="1_vc8q6"]
-[ext_resource type="PackedScene" uid="uid://id0l3ei3a4pe" path="res://killzone.tscn" id="3_gy68n"]
+[ext_resource type="Script" path="res://scripts/wrogowie_u_d.gd" id="1_ftf14"]
+[ext_resource type="PackedScene" uid="uid://id0l3ei3a4pe" path="res://killzone.tscn" id="2_g62j7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36fg6"]
 atlas = ExtResource("1_455b2")
@@ -28,7 +28,7 @@ region = Rect2(128, 0, 32, 16)
 atlas = ExtResource("1_455b2")
 region = Rect2(160, 0, 32, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_i3ft0"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_o051u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -54,29 +54,30 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gbj3c"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_up6eu"]
 radius = 5.09902
 
-[node name="slime" type="Node2D"]
-script = ExtResource("1_vc8q6")
+[node name="SlimeUD" type="Node2D"]
+script = ExtResource("1_ftf14")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
-sprite_frames = SubResource("SpriteFrames_i3ft0")
+sprite_frames = SubResource("SpriteFrames_o051u")
 autoplay = "default"
-frame_progress = 0.827526
+frame = 5
+frame_progress = 0.366872
 flip_h = true
 
-[node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(0, -5)
-target_position = Vector2(9, 0)
+[node name="RayCastDown" type="RayCast2D" parent="."]
+position = Vector2(0, -4)
+target_position = Vector2(0, 10)
 
-[node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(0, -5)
-target_position = Vector2(-10, 0)
+[node name="RayCastUp" type="RayCast2D" parent="."]
+position = Vector2(0, -4)
+target_position = Vector2(0, -10)
 
-[node name="Killzone" parent="." instance=ExtResource("3_gy68n")]
+[node name="Killzone" parent="." instance=ExtResource("2_g62j7")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_gbj3c")
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_up6eu")
