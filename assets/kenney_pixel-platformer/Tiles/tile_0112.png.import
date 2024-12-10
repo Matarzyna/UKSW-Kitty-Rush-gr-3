@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqsxis3fy43b5"
-path="res://.godot/imported/Chest_TEST.png-41b454aeaac6545a7bb3823f84ec3870.ctex"
+uid="uid://dp6kdn3iamhco"
+path="res://.godot/imported/tile_0112.png-659f867ade6e8d6037e1ba33fb1c2ccc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Chest_TEST.png"
-dest_files=["res://.godot/imported/Chest_TEST.png-41b454aeaac6545a7bb3823f84ec3870.ctex"]
+source_file="res://assets/kenney_pixel-platformer/Tiles/tile_0112.png"
+dest_files=["res://.godot/imported/tile_0112.png-659f867ade6e8d6037e1ba33fb1c2ccc.ctex"]
 
 [params]
 

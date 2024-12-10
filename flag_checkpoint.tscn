@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3hl6a4pm2dfr"]
+
+[ext_resource type="Script" path="res://scripts/flag_checkpoint.gd" id="1_1oqmo"]
+[ext_resource type="Texture2D" uid="uid://piqrw8pwdid6" path="res://assets/kenney_pixel-platformer/Tiles/tile_0111.png" id="1_3vdyy"]
+[ext_resource type="Texture2D" uid="uid://dp6kdn3iamhco" path="res://assets/kenney_pixel-platformer/Tiles/tile_0112.png" id="2_ke8f8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_snp2y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3vdyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ke8f8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuuje"]
+size = Vector2(3, 17)
+
+[node name="flag" type="Area2D"]
+script = ExtResource("1_1oqmo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, 0)
+sprite_frames = SubResource("SpriteFrames_snp2y")
+autoplay = "default"
+frame_progress = 0.259649
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_yuuje")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
