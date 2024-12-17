@@ -14,18 +14,21 @@ var death_position = Vector2(-104,80) #Pozycja checkpointu
 
 func _physics_process(delta):
 	if is_moving:
-		# Kontynuuj ruch
 		move_timer += delta
 		var progress = move_timer / move_time
 		if progress >= 1.0:
 			progress = 1.0
-			is_moving = false  # Ruch zakończony
+			is_moving = false
 
-		# Interpoluj między pozycją startową a końcową
-		global_position = start_position + move_direction * tile_size * progress
+		var velocity = move_direction * tile_size / move_time
+		var collision = move_and_collide(velocity * delta)  # Sprawdź kolizję podczas ruchu
+		if collision:
+			if collision.get_collider().is_in_group("Killzone"):  # Grupa Killzone
+				force_death()
 	else:
-		# Sprawdź wejście gracza
 		handle_input()
+
+
 		
 
 func handle_input():
