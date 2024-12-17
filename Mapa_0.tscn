@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=28 format=4 uid="uid://cg2de6wjkemhw"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_bb18c"]
 [ext_resource type="Texture2D" uid="uid://b6neg4hgcnti1" path="res://assets/sprite sheet 16x16px seamless textures.png" id="1_or2n3"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://scripts/bush.gd" id="8_p010d"]
 [ext_resource type="PackedScene" uid="uid://d3hl6a4pm2dfr" path="res://flag_checkpoint.tscn" id="9_efkol"]
 [ext_resource type="PackedScene" uid="uid://cb2xd58iuf5bi" path="res://wrogowieU_D.tscn" id="12_pkg0m"]
+[ext_resource type="PackedScene" uid="uid://c2n5cjovfdyn8" path="res://fast_wrogowieL_R.tscn" id="13_8ya4u"]
+[ext_resource type="PackedScene" uid="uid://csnejn2m0uimx" path="res://fast_wrogowieU_D.tscn" id="14_wrn8i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1f63"]
 texture = ExtResource("3_1g3ng")
@@ -2364,7 +2366,7 @@ tile_map_data = PackedByteArray("AAD5/wMAAQAOAAsAAAD5/wQAAQAOAAIAAAD5/wUAAQAOAAI
 tile_set = SubResource("TileSet_3waaj")
 
 [node name="slime" parent="." instance=ExtResource("6_bx2o1")]
-position = Vector2(319, 168)
+position = Vector2(552, 136)
 
 [node name="Bush" parent="." instance=ExtResource("7_pcpim")]
 position = Vector2(-72, 80)
@@ -2377,7 +2379,13 @@ position = Vector2(182, 144)
 position = Vector2(296, 160)
 
 [node name="slime2" parent="." instance=ExtResource("6_bx2o1")]
-position = Vector2(680, 168)
+position = Vector2(520, 104)
 
 [node name="SlimeUD" parent="." instance=ExtResource("12_pkg0m")]
-position = Vector2(240, 168)
+position = Vector2(328, 168)
+
+[node name="slimeLR" parent="." instance=ExtResource("13_8ya4u")]
+position = Vector2(712, 168)
+
+[node name="SlimeUD2" parent="." instance=ExtResource("14_wrn8i")]
+position = Vector2(248, 168)
