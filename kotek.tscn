@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2ms7fkh18jg0"]
+
+[ext_resource type="Script" path="res://scripts/kotek.gd" id="1_ew0uc"]
+[ext_resource type="Texture2D" uid="uid://cjhpsfx6w1h0u" path="res://assets/Cat Sprite Sheet.png" id="2_k163l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2c66"]
+atlas = ExtResource("2_k163l")
+region = Rect2(0, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk5tr"]
+atlas = ExtResource("2_k163l")
+region = Rect2(32, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb62f"]
+atlas = ExtResource("2_k163l")
+region = Rect2(64, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fvji"]
+atlas = ExtResource("2_k163l")
+region = Rect2(96, 0, 32, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ehuu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2c66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk5tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb62f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fvji")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxhpb"]
+radius = 6.08276
+
+[node name="kotek" type="Area2D"]
+collision_mask = 4
+script = ExtResource("1_ew0uc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7ehuu")
+autoplay = "default"
+frame_progress = 0.144785
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 10)
+shape = SubResource("CircleShape2D_uxhpb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
