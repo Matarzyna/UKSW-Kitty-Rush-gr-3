@@ -2,7 +2,7 @@ extends Node2D
 
 const NORMAL_SPEED = 40      # Normalna prędkość
 const CHASE_SPEED = 60       # Przyspieszona prędkość
-const DETECTION_RANGE = 50  # Zasięg wykrywania postaci
+const DETECTION_RANGE = 30  # Zasięg wykrywania postaci
 
 var direction = -1
 var player = null  # Referencja do postaci gracza
