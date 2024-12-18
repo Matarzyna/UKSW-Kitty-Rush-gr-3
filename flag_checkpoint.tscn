@@ -22,6 +22,7 @@ animations = [{
 size = Vector2(3, 17)
 
 [node name="flag" type="Area2D"]
+collision_mask = 3
 script = ExtResource("1_1oqmo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
