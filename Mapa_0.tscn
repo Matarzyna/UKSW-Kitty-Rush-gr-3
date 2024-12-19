@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=24 format=4 uid="uid://cg2de6wjkemhw"]
 
+[ext_resource type="Script" path="res://game_manager.gd" id="1_2nhx3"]
 [ext_resource type="Texture2D" uid="uid://b6neg4hgcnti1" path="res://assets/sprite sheet 16x16px seamless textures.png" id="1_or2n3"]
 [ext_resource type="Texture2D" uid="uid://oiekbjeyn6uw" path="res://assets/rozowe cegielki.png" id="3_1g3ng"]
 [ext_resource type="Texture2D" uid="uid://b1v18wtmy1frx" path="res://assets/Tiny Wonder Forest 1.0/items&objects/summer and spring items.png" id="4_gwyfr"]
@@ -2350,6 +2351,12 @@ sources/2 = SubResource("TileSetAtlasSource_7bufw")
 sources/3 = SubResource("TileSetAtlasSource_5dpuc")
 
 [node name="Levels" type="Node2D"]
+
+[node name="kitty_counter" type="CanvasLayer" parent="."]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_2nhx3")
 
 [node name="Walls" type="TileMapLayer" parent="."]
 position = Vector2(-16, -8)
