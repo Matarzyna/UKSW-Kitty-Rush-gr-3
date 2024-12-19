@@ -37,7 +37,7 @@ func handle_input():
 				start_movement(Vector2.UP, "clime_r")
 			else:
 				start_movement(Vector2.UP, "clime_l")
-		else:
+		elif Input.is_action_pressed("ui_accept"):
 			start_attack(face_direction)
 	
 	elif Input.is_action_pressed("ui_down"):
@@ -48,7 +48,7 @@ func handle_input():
 				start_movement(Vector2.DOWN, "clime_r")
 			else:
 				start_movement(Vector2.DOWN, "clime_l")
-		else:
+		elif Input.is_action_pressed("ui_accept"):
 			start_attack(face_direction)
 	
 	elif Input.is_action_pressed("ui_left"):
@@ -57,7 +57,7 @@ func handle_input():
 		face_direction = "left"
 		if !ray.is_colliding():
 			start_movement(Vector2.LEFT, "walk_l")
-		else:
+		elif Input.is_action_pressed("ui_accept"):
 			start_attack(face_direction)
 	
 	elif Input.is_action_pressed("ui_right"):
@@ -66,7 +66,7 @@ func handle_input():
 		face_direction = "right"
 		if !ray.is_colliding():
 			start_movement(Vector2.RIGHT, "walk_r")
-		else:
+		elif Input.is_action_pressed("ui_accept"):
 			start_attack(face_direction)
 	
 	else:
