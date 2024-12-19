@@ -70,7 +70,7 @@ func start_movement(direction: Vector2, animation: String):
 	start_position = global_position
 	animated_sprite_2d.play(animation)
 
-	
+
 
 
 
