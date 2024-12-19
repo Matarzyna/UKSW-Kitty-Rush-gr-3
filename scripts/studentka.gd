@@ -23,12 +23,7 @@ func _physics_process(delta):
 		# Interpoluj między pozycją startową a końcową
 		global_position = start_position + move_direction * tile_size * progress
 	elif is_destroy:
-		move_timer += delta
-		var progress = move_timer / move_time
-		if progress >= 1.0:
-			progress = 1.0
 			is_destroy = false
-		
 	else:
 		# Sprawdź wejście gracza
 		handle_input()
@@ -83,12 +78,12 @@ func handle_input():
 func start_attack(direction: String):
 	var collider = ray.get_collider()
 	if collider.is_in_group('bushs'):
-		if(direction == "left"):
-			animated_sprite_2d.play("destroy_l")
-		else:
-			animated_sprite_2d.play("destroy_r")
+		#if(direction == "left"):
+			#animated_sprite_2d.play("destroy_l")
+		#else:
+			#animated_sprite_2d.play("destroy_r")
 		is_destroy = true
-		move_timer = 0.0
+		#move_timer = 0.0
 		collider.body_entered()
 
 func start_movement(direction: Vector2, animation: String):
