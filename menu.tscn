@@ -81,6 +81,20 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_i2q58")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0dn1t")
 text = "Start game"
 
+[node name="continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7hh4w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nnxke")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2q58")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0dn1t")
+text = "Continue"
+
 [node name="settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -94,6 +108,20 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_nnxke")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_i2q58")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0dn1t")
 text = "Settings"
+
+[node name="credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7hh4w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nnxke")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2q58")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0dn1t")
+text = "Credits"
 
 [node name="exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -128,5 +156,7 @@ theme_override_font_sizes/font_size = 55
 text = "Kitty Rush"
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
