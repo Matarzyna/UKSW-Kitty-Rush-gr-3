@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuvetku2jblcy"
-path="res://.godot/imported/Chests_Animations.png-c9c67e4dac6eb617a068624d8e454448.ctex"
+uid="uid://cshui1n6aqutk"
+path="res://.godot/imported/SampleA.png-d666961c40aa6366263542c929d03803.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Chests_Animations.png"
-dest_files=["res://.godot/imported/Chests_Animations.png-c9c67e4dac6eb617a068624d8e454448.ctex"]
+source_file="res://assets/kenney_pixel-platformer/SampleA.png"
+dest_files=["res://.godot/imported/SampleA.png-d666961c40aa6366263542c929d03803.ctex"]
 
 [params]
 

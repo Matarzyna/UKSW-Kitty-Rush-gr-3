@@ -9,24 +9,33 @@ var is_moving = false  # Flaga kontrolująca, czy postać obecnie się porusza
 var move_direction = Vector2.ZERO  # Kierunek ruchu
 var move_timer = 0.0  # Licznik czasu dla ruchu
 var start_position = Vector2.ZERO  # Pozycja początkowa ruchu
+
+var death_position = Vector2(-104,80) #Pozycja checkpointu
 var is_destroy = false
+
 
 func _physics_process(delta):
 	if is_moving:
-		# Kontynuuj ruch
 		move_timer += delta
 		var progress = move_timer / move_time
 		if progress >= 1.0:
 			progress = 1.0
-			is_moving = false  # Ruch zakończony
+			is_moving = false
 
-		# Interpoluj między pozycją startową a końcową
-		global_position = start_position + move_direction * tile_size * progress
+		var velocity = move_direction * tile_size / move_time
+		var collision = move_and_collide(velocity * delta)  # Sprawdź kolizję podczas ruchu
+		if collision:
+			if collision.get_collider().is_in_group("Killzone"):  # Grupa Killzone
+				force_death()
+				
 	elif is_destroy:
 			is_destroy = false
+
 	else:
-		# Sprawdź wejście gracza
 		handle_input()
+
+
+		
 
 func handle_input():
 	if Input.is_action_pressed("ui_up"):
@@ -78,12 +87,12 @@ func handle_input():
 func start_attack(direction: String):
 	var collider = ray.get_collider()
 	if collider.is_in_group('bushs'):
-		#if(direction == "left"):
-			#animated_sprite_2d.play("destroy_l")
-		#else:
-			#animated_sprite_2d.play("destroy_r")
+		if(direction == "left"):
+			animated_sprite_2d.play("destroy_l")
+		else:
+			animated_sprite_2d.play("destroy_r")
 		is_destroy = true
-		#move_timer = 0.0
+		move_timer = 0.0
 		collider.body_entered()
 
 func start_movement(direction: Vector2, animation: String):
@@ -93,13 +102,9 @@ func start_movement(direction: Vector2, animation: String):
 	start_position = global_position
 	animated_sprite_2d.play(animation)
 
-	
+func reset_to_checkpoint():
+	global_position = death_position
 
-
-
-
-
-
-
-
+func force_death():
+	reset_to_checkpoint()
 	
