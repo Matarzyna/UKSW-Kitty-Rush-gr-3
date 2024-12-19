@@ -27,9 +27,7 @@ func _physics_process(delta):
 		if collision:
 			if collision.get_collider().is_in_group("Killzone"):  # Grupa Killzone
 				force_death()
-
-		# Interpoluj między pozycją startową a końcową
-		global_position = start_position + move_direction * tile_size * progress
+				
 	elif is_destroy:
 			is_destroy = false
 
