@@ -2346,7 +2346,7 @@ sources/1 = SubResource("TileSetAtlasSource_sebpn")
 sources/2 = SubResource("TileSetAtlasSource_7bufw")
 sources/3 = SubResource("TileSetAtlasSource_5dpuc")
 
-[node name="Levels" type="Node2D"]
+[node name="Levels" type="Node2D" groups=["GameManager"]]
 script = ExtResource("1_bb18c")
 
 [node name="Walls" type="TileMapLayer" parent="."]

@@ -30,17 +30,24 @@ func _physics_process(delta):
 		if collision:
 			if collision.get_collider().is_in_group("Killzone"):  # Grupa Killzone
 				life -= 1;
-				check_life()
-				if(life == 0):
-					force_death()
+				notify_game_manager_check_life()
+				if life == 0:
+					notify_game_manager_force_death()
 				
 	elif is_destroy:
 			is_destroy = false
 	else:
 		handle_input()
 
+func notify_game_manager_check_life():
+	var game_manager = get_tree().get_nodes_in_group("GameManager")[0]
+	if game_manager:
+		game_manager.check_life(life)
 
-		
+func notify_game_manager_force_death():
+	var game_manager = get_tree().get_nodes_in_group("GameManager")[0]
+	if game_manager:
+		game_manager.force_death()
 
 func handle_input():
 	if Input.is_action_pressed("ui_up"):
@@ -109,28 +116,3 @@ func start_movement(direction: Vector2, animation: String):
 
 func reset_to_checkpoint():
 	global_position = death_position
-
-func force_death():
-	life = 5
-	globalLife -= 1
-	var text = str(globalLife)
-	$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D5.play("default")
-	$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D4.play("default")
-	$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D3.play("default")
-	$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D2.play("default")
-	$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D.play("default")
-	$"../CanvasLayer"/Container/HBoxContainer3/AnimatedSprite2D.play(text)
-	reset_to_checkpoint()
-
-
-func check_life():
-	if(life == 4):
-		$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
-	elif(life == 3):
-		$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
-	elif(life == 2):
-		$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D3.play("nothing")
-	elif(life == 1):
-		$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D2.play("nothing")
-	elif(life == 0):
-		$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D.play("nothing")
