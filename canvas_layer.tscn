@@ -1,0 +1,250 @@
+[gd_scene load_steps=20 format=3 uid="uid://dkg5oq12g8h0l"]
+
+[ext_resource type="Texture2D" uid="uid://cjrkkj8u6a6vj" path="res://assets/Sprites/12-Live and Coins/Live Bar.png" id="1_3euw1"]
+[ext_resource type="Texture2D" uid="uid://c8wcxcinb4kil" path="res://assets/Sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="2_7l5ot"]
+[ext_resource type="Texture2D" uid="uid://7kjlneqch6j3" path="res://assets/Sprites/12-Live and Coins/Numbers (6x8).png" id="3_pb726"]
+[ext_resource type="Texture2D" uid="uid://d4lwm7w1woh2h" path="res://assets/Tiny Wonder Forest 1.0/characters/main character/portrait female.png" id="4_872bc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ui3x"]
+atlas = ExtResource("2_7l5ot")
+region = Rect2(54, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eshpk"]
+atlas = ExtResource("2_7l5ot")
+region = Rect2(72, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auo40"]
+atlas = ExtResource("2_7l5ot")
+region = Rect2(90, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp5w4"]
+atlas = ExtResource("2_7l5ot")
+region = Rect2(108, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51cwd"]
+atlas = ExtResource("2_7l5ot")
+region = Rect2(126, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esfo8"]
+atlas = ExtResource("2_7l5ot")
+region = Rect2(0, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11m3c"]
+atlas = ExtResource("1_3euw1")
+region = Rect2(54, 0, 9, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qbosy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ui3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eshpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auo40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp5w4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51cwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esfo8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11m3c")
+}],
+"loop": true,
+"name": &"nothing",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w0dg"]
+atlas = ExtResource("3_pb726")
+region = Rect2(54, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl8yv"]
+atlas = ExtResource("3_pb726")
+region = Rect2(0, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dijw"]
+atlas = ExtResource("3_pb726")
+region = Rect2(6, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skvwy"]
+atlas = ExtResource("3_pb726")
+region = Rect2(12, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rv0g"]
+atlas = ExtResource("3_pb726")
+region = Rect2(18, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_henov"]
+atlas = ExtResource("3_pb726")
+region = Rect2(24, 0, 6, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlhib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w0dg")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl8yv")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dijw")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skvwy")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rv0g")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_henov")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 256.0
+offset_bottom = 85.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+offset_right = 197.0
+offset_bottom = 65.0
+scale = Vector2(1.3, 1.3)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Container/HBoxContainer"]
+position = Vector2(32, 32)
+scale = Vector2(2.37037, 1.88235)
+texture = ExtResource("1_3euw1")
+region_enabled = true
+region_rect = Rect2(0, 0, 27.2257, 34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/HBoxContainer"]
+position = Vector2(76, 32)
+scale = Vector2(2.18182, 1.88235)
+texture = ExtResource("1_3euw1")
+region_enabled = true
+region_rect = Rect2(27.5, 0, 11, 34)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Container/HBoxContainer"]
+position = Vector2(100, 32)
+scale = Vector2(2.18182, 1.88235)
+texture = ExtResource("1_3euw1")
+region_enabled = true
+region_rect = Rect2(27.5, 0, 11, 34)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Container/HBoxContainer"]
+position = Vector2(124, 32)
+scale = Vector2(2.18182, 1.88235)
+texture = ExtResource("1_3euw1")
+region_enabled = true
+region_rect = Rect2(27.5, 0, 11, 34)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Container/HBoxContainer"]
+position = Vector2(166, 32)
+scale = Vector2(2.18182, 1.88235)
+texture = ExtResource("1_3euw1")
+region_enabled = true
+region_rect = Rect2(38.5, 0, 27.5122, 34)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+offset_right = 256.0
+offset_bottom = 85.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Container/HBoxContainer2"]
+position = Vector2(62.5, 41)
+scale = Vector2(2.5, 2)
+sprite_frames = SubResource("SpriteFrames_qbosy")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Container/HBoxContainer2"]
+position = Vector2(94, 41)
+scale = Vector2(2.5, 2)
+sprite_frames = SubResource("SpriteFrames_qbosy")
+autoplay = "default"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Container/HBoxContainer2"]
+position = Vector2(125.05, 41)
+scale = Vector2(2.5, 2)
+sprite_frames = SubResource("SpriteFrames_qbosy")
+autoplay = "default"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Container/HBoxContainer2"]
+position = Vector2(156.25, 41)
+scale = Vector2(2.5, 2)
+sprite_frames = SubResource("SpriteFrames_qbosy")
+autoplay = "default"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Container/HBoxContainer2"]
+position = Vector2(187.4, 41)
+scale = Vector2(2.5, 2)
+sprite_frames = SubResource("SpriteFrames_qbosy")
+autoplay = "default"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Container"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 63.0
+offset_right = 147.0
+offset_bottom = 148.0
+theme_override_constants/separation = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Container/HBoxContainer3"]
+position = Vector2(35.25, 44.6667)
+scale = Vector2(11.25, 11.25)
+sprite_frames = SubResource("SpriteFrames_jlhib")
+animation = &"4"
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/HBoxContainer3"]
+position = Vector2(105, 45)
+scale = Vector2(1.76671, 1.65854)
+texture = ExtResource("4_872bc")
+region_enabled = true
+region_rect = Rect2(13, 3, 44, 41)

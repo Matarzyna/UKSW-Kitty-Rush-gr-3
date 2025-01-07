@@ -9,7 +9,8 @@ func _ready() -> void:
 		print("Gracz odnaleziony: ", player)
 	else:
 		print("Nie znaleziono gracza w grupie 'player'!")
-
+	$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play("5")
+	
 func force_death():
 	if player != null:
 		player.reset_to_checkpoint()
