@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://ddmbailvjslmc"]
+[gd_scene load_steps=34 format=3 uid="uid://ddmbailvjslmc"]
 
 [ext_resource type="Script" path="res://scripts/studentka.gd" id="1_h55m5"]
 [ext_resource type="Texture2D" uid="uid://ceybhpiqs3j7w" path="res://assets/Tiny Wonder Forest 1.0/characters/main character/walk and idle.png" id="2_hn12m"]
+[ext_resource type="Texture2D" uid="uid://cp7mof656im8x" path="res://assets/Tiny Wonder Forest 1.0/characters/main character/attack and die.png" id="3_bailt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0x12"]
 atlas = ExtResource("2_hn12m")
@@ -34,6 +35,38 @@ region = Rect2(48, 0, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b33wh"]
 atlas = ExtResource("2_hn12m")
 region = Rect2(144, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17pi8"]
+atlas = ExtResource("3_bailt")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy25c"]
+atlas = ExtResource("3_bailt")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0x3y"]
+atlas = ExtResource("3_bailt")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yaps"]
+atlas = ExtResource("3_bailt")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axidf"]
+atlas = ExtResource("3_bailt")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x08lw"]
+atlas = ExtResource("3_bailt")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3clo"]
+atlas = ExtResource("3_bailt")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1axw"]
+atlas = ExtResource("3_bailt")
+region = Rect2(96, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5qku0"]
 atlas = ExtResource("2_hn12m")
@@ -120,6 +153,40 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_17pi8")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_cy25c")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_a0x3y")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_1yaps")
+}],
+"loop": true,
+"name": &"destroy_l",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_axidf")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_x08lw")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_v3clo")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_s1axw")
+}],
+"loop": true,
+"name": &"destroy_r",
+"speed": 10.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5qku0")
 }, {
@@ -180,7 +247,7 @@ animations = [{
 radius = 2.5
 height = 12.0
 
-[node name="Studentka" type="CharacterBody2D"]
+[node name="Studentka" type="CharacterBody2D" groups=["player"]]
 collision_layer = 6
 script = ExtResource("1_h55m5")
 
@@ -192,7 +259,7 @@ collision_mask = 3
 position = Vector2(0, -1)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_de3l0")
-animation = &"clime_r"
+animation = &"destroy_r"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)

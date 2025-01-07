@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=3 uid="uid://cdwdswbqlpimj"]
+
+[ext_resource type="Texture2D" uid="uid://belf13a0bosdb" path="res://assets/Sprites/PurpleDungeon/slime.png" id="1_455b2"]
+[ext_resource type="PackedScene" uid="uid://id0l3ei3a4pe" path="res://killzone.tscn" id="2_g62j7"]
+
+[sub_resource type="GDScript" id="GDScript_exyag"]
+script/source = "extends Node2D
+
+const SPEED = 40
+
+var direction = -1
+@onready var ray_cast_right: RayCast2D = $RayCastRight
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if ray_cast_right.is_colliding():
+		direction = -1
+		animated_sprite.flip_h = true
+	if ray_cast_left.is_colliding():
+		direction = 1
+		animated_sprite.flip_h = false
+	position.x += direction * SPEED * delta
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36fg6"]
+atlas = ExtResource("1_455b2")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t0da"]
+atlas = ExtResource("1_455b2")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqlo0"]
+atlas = ExtResource("1_455b2")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edluv"]
+atlas = ExtResource("1_455b2")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6g7w"]
+atlas = ExtResource("1_455b2")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snxmh"]
+atlas = ExtResource("1_455b2")
+region = Rect2(160, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i3ft0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36fg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t0da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqlo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edluv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6g7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snxmh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gbj3c"]
+radius = 5.09902
+
+[node name="slimeLR" type="Node2D"]
+script = SubResource("GDScript_exyag")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_i3ft0")
+autoplay = "default"
+frame_progress = 0.827526
+flip_h = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, -5)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, -5)
+target_position = Vector2(-10, 0)
+
+[node name="Killzone" parent="." instance=ExtResource("2_g62j7")]
+position = Vector2(0, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("CircleShape2D_gbj3c")

@@ -1,0 +1,123 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2n5cjovfdyn8"]
+
+[ext_resource type="Texture2D" uid="uid://belf13a0bosdb" path="res://assets/Sprites/PurpleDungeon/slime.png" id="1_o0y21"]
+[ext_resource type="PackedScene" uid="uid://id0l3ei3a4pe" path="res://killzone.tscn" id="2_alteb"]
+
+[sub_resource type="GDScript" id="GDScript_exyag"]
+script/source = "extends Node2D
+
+const NORMAL_SPEED = 40      # Normalna prędkość
+const CHASE_SPEED = 60       # Przyspieszona prędkość
+const DETECTION_RANGE = 100  # Zasięg wykrywania postaci
+
+var direction = -1
+var player = null  # Referencja do postaci gracza
+@onready var ray_cast_right: RayCast2D = $RayCastRight
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready():
+	# Pobierz gracza z grupy 'player'
+	var players = get_tree().get_nodes_in_group(\"player\")
+	if players.size() > 0:
+		player = players[0]
+	else:
+		print(\"Nie znaleziono gracza w grupie 'player'!\")
+		
+func _process(delta: float) -> void:
+	var speed = NORMAL_SPEED
+	
+	# Sprawdź odległość do gracza
+	if player:
+		var distance = global_position.distance_to(player.global_position)
+		if distance <= DETECTION_RANGE:
+			speed = CHASE_SPEED  # Przyspiesz, jeśli gracz jest blisko
+	
+	# Wykrywanie kolizji z użyciem RayCast2D
+	if ray_cast_right.is_colliding():
+		direction = -1
+		animated_sprite.flip_h = true
+	if ray_cast_left.is_colliding():
+		direction = 1
+		animated_sprite.flip_h = false
+	
+	# Ruch wroga
+	position.x += direction * speed * delta
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36fg6"]
+atlas = ExtResource("1_o0y21")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t0da"]
+atlas = ExtResource("1_o0y21")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqlo0"]
+atlas = ExtResource("1_o0y21")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edluv"]
+atlas = ExtResource("1_o0y21")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6g7w"]
+atlas = ExtResource("1_o0y21")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snxmh"]
+atlas = ExtResource("1_o0y21")
+region = Rect2(160, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i3ft0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36fg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t0da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqlo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edluv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6g7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snxmh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gbj3c"]
+radius = 5.09902
+
+[node name="slimeLR" type="Node2D"]
+script = SubResource("GDScript_exyag")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_i3ft0")
+autoplay = "default"
+frame_progress = 0.827526
+flip_h = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, -5)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, -5)
+target_position = Vector2(-10, 0)
+
+[node name="Killzone" parent="." instance=ExtResource("2_alteb")]
+position = Vector2(0, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("CircleShape2D_gbj3c")
