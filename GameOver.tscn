@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqs3fqatf5flq"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_cvpvx"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_dhott"]
+[ext_resource type="FontFile" uid="uid://bx4e3cadheu1u" path="res://PressStart2P-Regular.ttf" id="3_ijsh3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dxhfy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crhfh"]
+bg_color = Color(0.979991, 0.817369, 0.972384, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c11w"]
+bg_color = Color(0.968829, 0.674159, 0.960341, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4thp"]
+bg_color = Color(0.990084, 0.916962, 0.985766, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[node name="GameOverCanvas" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_cvpvx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -233.0
+offset_right = 275.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ijsh3")
+theme_override_font_sizes/font_size = 55
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -26.0
+offset_right = 225.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+script = ExtResource("1_dhott")
+
+[node name="restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dxhfy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_crhfh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0c11w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4thp")
+text = "Restart game"
+
+[node name="menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dxhfy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_crhfh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0c11w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4thp")
+text = "Main menu"
+
+[node name="exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dxhfy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_crhfh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0c11w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4thp")
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/restart" to="VBoxContainer" method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/menu" to="VBoxContainer" method="_on_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="VBoxContainer" method="_on_exit_pressed"]
