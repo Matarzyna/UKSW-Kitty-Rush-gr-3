@@ -15,6 +15,10 @@ run/main_scene="res://Mapa_0.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+global="*res://game_manager.gd"
+
 [display]
 
 window/stretch/mode="viewport"

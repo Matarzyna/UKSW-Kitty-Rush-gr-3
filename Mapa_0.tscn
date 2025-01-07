@@ -1,6 +1,8 @@
-[gd_scene load_steps=28 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=31 format=4 uid="uid://cg2de6wjkemhw"]
 
+[ext_resource type="Script" path="res://game_manager.gd" id="1_2nhx3"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_bb18c"]
+[ext_resource type="FontFile" uid="uid://cpo2aw0h2sjhe" path="res://PressStart2P-Regular.ttf" id="1_ktohv"]
 [ext_resource type="Texture2D" uid="uid://b6neg4hgcnti1" path="res://assets/sprite sheet 16x16px seamless textures.png" id="1_or2n3"]
 [ext_resource type="PackedScene" uid="uid://dkg5oq12g8h0l" path="res://canvas_layer.tscn" id="2_g4ab4"]
 [ext_resource type="Texture2D" uid="uid://oiekbjeyn6uw" path="res://assets/rozowe cegielki.png" id="3_1g3ng"]
@@ -10,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ddmbailvjslmc" path="res://Studentka.tscn" id="6_5eior"]
 [ext_resource type="PackedScene" uid="uid://cdwdswbqlpimj" path="res://wrogowieL_R.tscn" id="6_bx2o1"]
 [ext_resource type="PackedScene" uid="uid://c5tr26hihx4c8" path="res://bush.tscn" id="7_pcpim"]
+[ext_resource type="PackedScene" uid="uid://c2ms7fkh18jg0" path="res://kotek.tscn" id="9_4yl4x"]
 [ext_resource type="PackedScene" uid="uid://d3hl6a4pm2dfr" path="res://flag_checkpoint.tscn" id="9_efkol"]
 [ext_resource type="PackedScene" uid="uid://cb2xd58iuf5bi" path="res://wrogowieU_D.tscn" id="12_pkg0m"]
 [ext_resource type="PackedScene" uid="uid://c2n5cjovfdyn8" path="res://fast_wrogowieL_R.tscn" id="13_8ya4u"]
@@ -2345,8 +2348,24 @@ sources/1 = SubResource("TileSetAtlasSource_sebpn")
 sources/2 = SubResource("TileSetAtlasSource_7bufw")
 sources/3 = SubResource("TileSetAtlasSource_5dpuc")
 
-[node name="Levels" type="Node2D"]
+[node name="Levels" type="Node2D" groups=["GameManager"]]
 script = ExtResource("1_bb18c")
+
+[node name="CanvasLayerKC" type="CanvasLayer" parent="."]
+
+[node name="kitty_counter" type="Label" parent="CanvasLayerKC"]
+unique_name_in_owner = true
+offset_left = 8.0
+offset_top = 608.0
+offset_right = 333.0
+offset_bottom = 633.0
+theme_override_fonts/font = ExtResource("1_ktohv")
+theme_override_font_sizes/font_size = 25
+text = "Kitty count: "
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_2nhx3")
 
 [node name="Walls" type="TileMapLayer" parent="."]
 position = Vector2(-16, -8)
@@ -2373,6 +2392,12 @@ position = Vector2(182, 144)
 
 [node name="flag" parent="." instance=ExtResource("9_efkol")]
 position = Vector2(296, 160)
+
+[node name="kotek" parent="." instance=ExtResource("9_4yl4x")]
+position = Vector2(160, 136)
+
+[node name="kotek2" parent="." instance=ExtResource("9_4yl4x")]
+position = Vector2(248, 128)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_g4ab4")]
 
