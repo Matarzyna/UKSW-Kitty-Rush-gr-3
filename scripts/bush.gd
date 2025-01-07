@@ -7,9 +7,12 @@ var move_timer = 0.0
 
 func reset_bush():
 	is_destroy = false
-	visible = true
+	call_deferred("set_visible", true)
+	call_deferred("reset_collision")
+	animated_sprite_2d.play("default")  # Przywróć animację początkową
+
+func reset_collision():
 	colision_shape_2d.disabled = false  # Włącz kolizję
-	animated_sprite_2d.play("default")
 
 func _physics_process(delta):
 	if is_destroy:
