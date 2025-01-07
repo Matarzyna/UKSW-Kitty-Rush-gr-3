@@ -2358,9 +2358,9 @@ sources/3 = SubResource("TileSetAtlasSource_5dpuc")
 [node name="kitty_counter" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
 offset_left = 8.0
-offset_top = 8.0
-offset_right = 216.0
-offset_bottom = 31.0
+offset_top = 608.0
+offset_right = 333.0
+offset_bottom = 633.0
 theme_override_fonts/font = ExtResource("1_ktohv")
 theme_override_font_sizes/font_size = 25
 text = "Kitty count: "
