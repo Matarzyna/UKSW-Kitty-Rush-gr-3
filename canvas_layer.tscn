@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dkg5oq12g8h0l"]
+[gd_scene load_steps=21 format=3 uid="uid://dkg5oq12g8h0l"]
 
 [ext_resource type="Texture2D" uid="uid://cjrkkj8u6a6vj" path="res://assets/Sprites/12-Live and Coins/Live Bar.png" id="1_3euw1"]
 [ext_resource type="Texture2D" uid="uid://c8wcxcinb4kil" path="res://assets/Sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="2_7l5ot"]
+[ext_resource type="Texture2D" uid="uid://ks644kd7kyva" path="res://assets/Tiny Wonder Forest 1.0/tilemaps/bridges.png" id="3_74gor"]
 [ext_resource type="Texture2D" uid="uid://7kjlneqch6j3" path="res://assets/Sprites/12-Live and Coins/Numbers (6x8).png" id="3_pb726"]
 [ext_resource type="Texture2D" uid="uid://d4lwm7w1woh2h" path="res://assets/Tiny Wonder Forest 1.0/characters/main character/portrait female.png" id="4_872bc"]
 
@@ -145,12 +146,13 @@ animations = [{
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Container" type="Control" parent="."]
+clip_contents = true
 layout_mode = 3
-anchors_preset = 0
-offset_left = 1.0
-offset_top = 2.0
-offset_right = 256.0
-offset_bottom = 85.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Container"]
 layout_mode = 2
@@ -194,11 +196,16 @@ region_enabled = true
 region_rect = Rect2(38.5, 0, 27.5122, 34)
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Container"]
+clip_contents = true
+layout_direction = 1
 layout_mode = 2
 offset_right = 256.0
 offset_bottom = 85.0
+localize_numeral_system = false
+alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Container/HBoxContainer2"]
+texture_filter = 1
 position = Vector2(62.5, 41)
 scale = Vector2(2.5, 2)
 sprite_frames = SubResource("SpriteFrames_qbosy")
@@ -228,23 +235,32 @@ scale = Vector2(2.5, 2)
 sprite_frames = SubResource("SpriteFrames_qbosy")
 autoplay = "default"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Container"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Container"]
 layout_mode = 0
-offset_left = -1.0
-offset_top = 63.0
-offset_right = 147.0
-offset_bottom = 148.0
-theme_override_constants/separation = 2
+offset_left = 929.0
+offset_top = -3.0
+offset_right = 1151.0
+offset_bottom = 65.0
+texture = ExtResource("3_74gor")
+region_rect = Rect2(47, 207, 50, 45)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Container"]
+clip_contents = true
+layout_mode = 0
+offset_left = 958.0
+offset_top = 10.0
+offset_right = 1028.0
+offset_bottom = 49.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Container/HBoxContainer3"]
-position = Vector2(35.25, 44.6667)
-scale = Vector2(11.25, 11.25)
+position = Vector2(54.7508, 20.992)
+scale = Vector2(5.55236, 5.502)
 sprite_frames = SubResource("SpriteFrames_jlhib")
 animation = &"4"
 
 [node name="Sprite2D" type="Sprite2D" parent="Container/HBoxContainer3"]
-position = Vector2(105, 45)
-scale = Vector2(1.76671, 1.65854)
+position = Vector2(22.0554, 19.5)
+scale = Vector2(0.887477, 0.902439)
 texture = ExtResource("4_872bc")
 region_enabled = true
 region_rect = Rect2(13, 3, 44, 41)
