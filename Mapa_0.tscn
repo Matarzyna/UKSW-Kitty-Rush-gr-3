@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=24 format=4 uid="uid://cg2de6wjkemhw"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_2nhx3"]
 [ext_resource type="FontFile" uid="uid://cpo2aw0h2sjhe" path="res://PressStart2P-Regular.ttf" id="1_ktohv"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://ddmbailvjslmc" path="res://Studentka.tscn" id="6_5eior"]
 [ext_resource type="PackedScene" uid="uid://c5tr26hihx4c8" path="res://bush.tscn" id="7_pcpim"]
 [ext_resource type="Script" path="res://scripts/bush.gd" id="8_p010d"]
-[ext_resource type="PackedScene" uid="uid://c2ms7fkh18jg0" path="res://kotek.tscn" id="9_4yl4x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1f63"]
 texture = ExtResource("3_1g3ng")
@@ -2392,9 +2391,3 @@ script = ExtResource("8_p010d")
 
 [node name="Studentka" parent="." instance=ExtResource("6_5eior")]
 position = Vector2(144, 144)
-
-[node name="kotek" parent="." instance=ExtResource("9_4yl4x")]
-position = Vector2(160, 136)
-
-[node name="kotek2" parent="." instance=ExtResource("9_4yl4x")]
-position = Vector2(248, 128)
