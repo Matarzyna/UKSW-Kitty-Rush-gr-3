@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D  # Ścieżka do AnimatedSprite2D
 @onready var ray = $RayCast2D
 
+var life = 5
+var globalLife = 5
 var face_direction = "right"
 var is_moving = false  # Flaga kontrolująca, czy postać obecnie się porusza
 var move_direction = Vector2.ZERO  # Kierunek ruchu
@@ -12,6 +14,7 @@ var start_position = Vector2.ZERO  # Pozycja początkowa ruchu
 
 var death_position = Vector2(-104,80) #Pozycja checkpointu
 var is_destroy = false
+var is_lost_hp = false
 
 
 func _physics_process(delta):
@@ -26,11 +29,13 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity * delta)  # Sprawdź kolizję podczas ruchu
 		if collision:
 			if collision.get_collider().is_in_group("Killzone"):  # Grupa Killzone
-				force_death()
+				life -= 1;
+				check_life()
+				if(life == 0):
+					force_death()
 				
 	elif is_destroy:
 			is_destroy = false
-
 	else:
 		handle_input()
 
@@ -106,5 +111,26 @@ func reset_to_checkpoint():
 	global_position = death_position
 
 func force_death():
+	life = 5
+	globalLife -= 1
+	var text = str(globalLife)
+	$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D5.play("default")
+	$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D4.play("default")
+	$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D3.play("default")
+	$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D2.play("default")
+	$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D.play("default")
+	$"../CanvasLayer"/Container/HBoxContainer3/AnimatedSprite2D.play(text)
 	reset_to_checkpoint()
-	
+
+
+func check_life():
+	if(life == 4):
+		$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
+	elif(life == 3):
+		$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
+	elif(life == 2):
+		$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D3.play("nothing")
+	elif(life == 1):
+		$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D2.play("nothing")
+	elif(life == 0):
+		$"../CanvasLayer"/Container/HBoxContainer2/AnimatedSprite2D.play("nothing")
