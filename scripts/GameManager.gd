@@ -36,6 +36,7 @@ func force_death():
 		player.reset_to_checkpoint()  # Reset do punktu kontrolnego
 		print("Gracz został cofnięty do checkpointu:", player.death_position)
 		update_ui_life(player.life)
+		reset_bushes()
 	else:
 		print("Gracz nie został znaleziony!")
 
@@ -45,6 +46,14 @@ func update_ui_life(life: int):
 		$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play(str(globalLife))
 		check_life(life)
 
+func reset_bushes():
+	var bushes = get_tree().get_nodes_in_group("bushes")
+	for bush in bushes:
+		if bush.has_method("reset_bush") and bush.is_destroy:
+			bush.reset_bush()
+			print("Zresetowano krzaczek: ", bush.name)
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("force_death"):
 		force_death()
+		

@@ -98,7 +98,7 @@ func handle_input():
 	
 func start_attack(direction: String):
 	var collider = ray.get_collider()
-	if collider.is_in_group('bushs'):
+	if collider.is_in_group('bushes'):
 		if(direction == "left"):
 			animated_sprite_2d.play("destroy_l")
 		else:
