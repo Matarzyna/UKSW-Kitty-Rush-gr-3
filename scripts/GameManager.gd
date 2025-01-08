@@ -28,15 +28,36 @@ func check_life(life: int):
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D2.play("nothing")
 	elif life == 0:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("nothing")
+		show_game_over_screen()
+		
+func show_game_over_screen():
+	$CanvasLayer.visible = false
+	$CanvasLayerKC.visible = false
+	$GameOverCanvas.visible = true
+
+	# Reset licznika kotków
+	var kitty_counter = get_node("/root/Levels/GameManager")
+	if kitty_counter != null:
+		kitty_counter.reset_cat_count()
+		print("Cat counter reset successfully.")
+	else:
+		print("Kitty_Counter node not found! Cannot reset cat count.")
+		
+	get_tree().paused = true
+
 
 func force_death():
 	if player != null:
 		player.globalLife -= 1
 		player.life = 5
-		player.reset_to_checkpoint()  # Reset do punktu kontrolnego
-		print("Gracz został cofnięty do checkpointu:", player.death_position)
-		update_ui_life(player.life)
-		reset_bushes()
+		if player.globalLife <= 0:
+			update_ui_life(player.life)
+			show_game_over_screen()
+		else:
+			player.reset_to_checkpoint()  # Reset do punktu kontrolnego
+			print("Gracz został cofnięty do checkpointu:", player.death_position)
+			update_ui_life(player.life)
+			reset_bushes()
 	else:
 		print("Gracz nie został znaleziony!")
 
