@@ -28,7 +28,6 @@ func check_life(life: int):
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D2.play("nothing")
 	elif life == 0:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("nothing")
-		show_game_over_screen()
 		
 func show_game_over_screen():
 	$CanvasLayer.visible = false
