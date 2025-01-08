@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=33 format=4 uid="uid://cg2de6wjkemhw"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2nhx3"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_bb18c"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c2n5cjovfdyn8" path="res://fast_wrogowieL_R.tscn" id="13_8ya4u"]
 [ext_resource type="PackedScene" uid="uid://csnejn2m0uimx" path="res://fast_wrogowieU_D.tscn" id="14_wrn8i"]
 [ext_resource type="PackedScene" uid="uid://dqs3fqatf5flq" path="res://GameOver.tscn" id="18_087gy"]
+[ext_resource type="PackedScene" uid="uid://cf2nminokdbg8" path="res://Pause.tscn" id="19_pgugo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1f63"]
 texture = ExtResource("3_1g3ng")
@@ -2391,6 +2392,8 @@ position = Vector2(552, 136)
 [node name="Studentka" parent="." instance=ExtResource("6_5eior")]
 position = Vector2(182, 144)
 
+[node name="CanvasLayer" parent="." instance=ExtResource("2_g4ab4")]
+
 [node name="flag" parent="." instance=ExtResource("9_efkol")]
 position = Vector2(296, 160)
 
@@ -2400,33 +2403,31 @@ position = Vector2(160, 136)
 [node name="kotek2" parent="." instance=ExtResource("9_4yl4x")]
 position = Vector2(248, 128)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("2_g4ab4")]
-
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Bushes" type="Node2D" parent="."]
 position = Vector2(200, 160)
 
-[node name="Bush2" parent="Node2D" instance=ExtResource("7_pcpim")]
+[node name="Bush2" parent="Bushes" instance=ExtResource("7_pcpim")]
 position = Vector2(0, -16)
 
-[node name="Bush3" parent="Node2D" instance=ExtResource("7_pcpim")]
+[node name="Bush3" parent="Bushes" instance=ExtResource("7_pcpim")]
 position = Vector2(16, 0)
 
-[node name="Bush4" parent="Node2D" instance=ExtResource("7_pcpim")]
+[node name="Bush4" parent="Bushes" instance=ExtResource("7_pcpim")]
 position = Vector2(0, -32)
 
-[node name="Bush5" parent="Node2D" instance=ExtResource("7_pcpim")]
+[node name="Bush5" parent="Bushes" instance=ExtResource("7_pcpim")]
 position = Vector2(16, -16)
 
-[node name="Bush6" parent="Node2D" instance=ExtResource("7_pcpim")]
+[node name="Bush6" parent="Bushes" instance=ExtResource("7_pcpim")]
 position = Vector2(16, -32)
 
-[node name="Bush7" parent="Node2D" instance=ExtResource("7_pcpim")]
+[node name="Bush7" parent="Bushes" instance=ExtResource("7_pcpim")]
 position = Vector2(-288, -80)
 
-[node name="Bush" parent="Node2D" instance=ExtResource("7_pcpim")]
+[node name="Bush" parent="Bushes" instance=ExtResource("7_pcpim")]
 position = Vector2(-272, -80)
 
-[node name="Bush8" parent="Node2D" instance=ExtResource("7_pcpim")]
+[node name="Bush8" parent="Bushes" instance=ExtResource("7_pcpim")]
 
 [node name="Slimes" type="Node2D" parent="."]
 
@@ -2441,5 +2442,7 @@ position = Vector2(712, 168)
 
 [node name="SlimeUD2" parent="Slimes" instance=ExtResource("14_wrn8i")]
 position = Vector2(248, 168)
+
+[node name="PauseCanvas" parent="." instance=ExtResource("19_pgugo")]
 
 [node name="GameOverCanvas" parent="." instance=ExtResource("18_087gy")]

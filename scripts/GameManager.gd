@@ -33,17 +33,13 @@ func show_game_over_screen():
 	$CanvasLayer.visible = false
 	$CanvasLayerKC.visible = false
 	$GameOverCanvas.visible = true
-
-	# Reset licznika kotków
-	var kitty_counter = get_node("/root/Levels/GameManager")
-	if kitty_counter != null:
-		kitty_counter.reset_cat_count()
-		print("Cat counter reset successfully.")
-	else:
-		print("Kitty_Counter node not found! Cannot reset cat count.")
-		
 	get_tree().paused = true
-
+	
+	var pause_menu = get_node("/root/Levels/PauseCanvas")
+	if pause_menu:
+		pause_menu.is_game_over = true
+	else:
+		print("PauseCanvas not found")
 
 func force_death():
 	if player != null:

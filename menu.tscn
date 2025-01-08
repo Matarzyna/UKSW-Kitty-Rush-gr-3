@@ -35,6 +35,7 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 
 [node name="menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
