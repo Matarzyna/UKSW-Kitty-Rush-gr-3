@@ -1,31 +1,31 @@
-[gd_scene load_steps=12 format=3 uid="uid://cb2xd58iuf5bi"]
+[gd_scene load_steps=12 format=3 uid="uid://csnejn2m0uimx"]
 
-[ext_resource type="Texture2D" uid="uid://belf13a0bosdb" path="res://assets/Sprites/PurpleDungeon/slime.png" id="1_455b2"]
-[ext_resource type="Script" path="res://scripts/wrogowie_u_d.gd" id="1_ftf14"]
-[ext_resource type="PackedScene" uid="uid://id0l3ei3a4pe" path="res://killzone.tscn" id="2_g62j7"]
+[ext_resource type="Script" path="res://scripts/wrogowie_scr/fast_wrogowie_u_d.gd" id="1_g7xnq"]
+[ext_resource type="Texture2D" uid="uid://belf13a0bosdb" path="res://assets/Sprites/PurpleDungeon/slime.png" id="2_nmm8i"]
+[ext_resource type="PackedScene" uid="uid://id0l3ei3a4pe" path="res://killzone.tscn" id="3_eyere"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36fg6"]
-atlas = ExtResource("1_455b2")
+atlas = ExtResource("2_nmm8i")
 region = Rect2(0, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8t0da"]
-atlas = ExtResource("1_455b2")
+atlas = ExtResource("2_nmm8i")
 region = Rect2(32, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqlo0"]
-atlas = ExtResource("1_455b2")
+atlas = ExtResource("2_nmm8i")
 region = Rect2(64, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_edluv"]
-atlas = ExtResource("1_455b2")
+atlas = ExtResource("2_nmm8i")
 region = Rect2(96, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a6g7w"]
-atlas = ExtResource("1_455b2")
+atlas = ExtResource("2_nmm8i")
 region = Rect2(128, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_snxmh"]
-atlas = ExtResource("1_455b2")
+atlas = ExtResource("2_nmm8i")
 region = Rect2(160, 0, 32, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o051u"]
@@ -58,7 +58,7 @@ animations = [{
 radius = 5.09902
 
 [node name="SlimeUD" type="Node2D"]
-script = ExtResource("1_ftf14")
+script = ExtResource("1_g7xnq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
@@ -76,7 +76,7 @@ target_position = Vector2(0, 10)
 position = Vector2(0, -4)
 target_position = Vector2(0, -10)
 
-[node name="Killzone" parent="." instance=ExtResource("2_g62j7")]
+[node name="Killzone" parent="." instance=ExtResource("3_eyere")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, -4)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dqs3fqatf5flq"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_cvpvx"]
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_dhott"]
+[ext_resource type="Script" path="res://scripts/menus/menu.gd" id="1_dhott"]
 [ext_resource type="FontFile" uid="uid://7rp3kor7n1xm" path="res://PressStart2P-Regular.ttf" id="3_ijsh3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dxhfy"]

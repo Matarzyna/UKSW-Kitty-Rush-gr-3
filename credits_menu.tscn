@@ -1,0 +1,187 @@
+[gd_scene load_steps=15 format=3 uid="uid://c5yn0k0rvm2uv"]
+
+[ext_resource type="FontFile" uid="uid://7rp3kor7n1xm" path="res://PressStart2P-Regular.ttf" id="1_fclum"]
+[ext_resource type="Script" path="res://scripts/menus/menu.gd" id="1_v8hfm"]
+[ext_resource type="Texture2D" uid="uid://dt7n12fo1j3xt" path="res://Zrzut ekranu 2025-01-09 184407.png" id="2_4tsfs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nnam"]
+texture = ExtResource("2_4tsfs")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ioflb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xephi"]
+bg_color = Color(0.979991, 0.817369, 0.972384, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eaol4"]
+bg_color = Color(0.968829, 0.674159, 0.960341, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdq67"]
+bg_color = Color(0.990084, 0.916962, 0.985766, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7s0a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_04csi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3kki"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n02v6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e2ocs"]
+
+[sub_resource type="Theme" id="Theme_myjrs"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_n7s0a")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_04csi")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_w3kki")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_n02v6")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_e2ocs")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v8hfm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6nnam")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_top = 59.0
+offset_right = 192.5
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 140.0
+offset_bottom = 62.0
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ioflb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xephi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eaol4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gdq67")
+text = "Back"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 177.0
+offset_right = 1133.0
+offset_bottom = 625.0
+theme = SubResource("Theme_myjrs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[node name="Label8" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[node name="Label9" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[node name="Label10" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
