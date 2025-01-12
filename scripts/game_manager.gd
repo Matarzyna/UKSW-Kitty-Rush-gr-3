@@ -1,7 +1,8 @@
 extends Node
 
 var cats_score = 0
-@onready var kitty_counter: Label = %kitty_counter
+#@onready var kitty_counter: Label = %kitty_counter
+@onready var kitty_counter = $"../CanvasLayerKC/kitty_counter" as Label
 
 func add_cat_count() -> void:
 	global.cats_score += 1

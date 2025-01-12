@@ -2681,8 +2681,6 @@ position = Vector2(488, 136)
 [node name="kotek2" parent="." instance=ExtResource("9_4yl4x")]
 position = Vector2(744, 120)
 
-[node name="CanvasLayer2" parent="." instance=ExtResource("2_g4ab4")]
-
 [node name="Bushes" type="Node2D" parent="."]
 position = Vector2(200, 160)
 

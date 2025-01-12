@@ -7,10 +7,12 @@ func _ready():
 	$PauseMenu/VBoxContainer.set_pause_canvas(self)
 
 func resume():
+	Global.set_paused(false)
 	get_tree().paused = false
 	$PauseMenu.visible = false
-
+	
 func pause():
+	Global.set_paused(true)
 	get_tree().paused = true
 	$PauseMenu.visible = true
 
