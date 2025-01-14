@@ -6,12 +6,16 @@ func set_pause_canvas(canvas):
 	Global.pause_menu = canvas
 
 func reset_kitty_counter():
-	var kitty_counter = get_node("/root/Levels/GameManager")
+	var kitty_counter = get_node("/root/Levels/CanvasLayerKC/Kitty counter")
 	if kitty_counter != null:
 		kitty_counter.reset_cat_count()
 		print("Cat counter reset successfully.")
 	else:
 		print("Kitty_Counter node not found! Cannot reset cat count.")
+		
+func reset_life():
+	Global.globalLife = 5
+	Global.life = 5
 
 func _on_start_pressed() -> void:
 	print("Start pressed")
@@ -35,11 +39,14 @@ func _on_restart_pressed() -> void:
 
 func _on_menu_pressed() -> void:
 	print("Menu pressed")
-	reset_kitty_counter()
 	get_tree().paused = false
 	Global.set_paused(false)
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
+	
+	reset_kitty_counter()
+	reset_life()
+	
 	get_tree().change_scene_to_file("res://menu.tscn")
 	
 func _on_settings_pressed() -> void:
@@ -79,8 +86,8 @@ func _on_exit_button_pressed():
 
 func save_current_scene():
 	if get_tree().current_scene:
-		Global.current_scene_state = get_tree().current_scene.duplicate()  # Zapisz scenę w Singletonie
-		Global.current_scene_state.name = get_tree().current_scene.name  # Zachowaj nazwę sceny
+		Global.current_scene_state = get_tree().current_scene.duplicate()
+		Global.current_scene_state.name = get_tree().current_scene.name
 		print("Bieżąca scena została zapisana.", Global.current_scene_state.name)
 	else:
 		print("Nie można zapisać bieżącej sceny.")
@@ -95,6 +102,7 @@ func load_previous_scene():
 		Global.current_scene_state = null
 	else:
 		print("Brak zapisanej sceny do załadowania!")
-		
+	
 	if Global.paused == true:
 		Global.pause_menu.resume()
+		

@@ -21,7 +21,6 @@ buses/default_bus_layout="res://Options/default_bus_layout.tres"
 
 [autoload]
 
-global="*res://scripts/game_manager.gd"
 TransitionScreen="*res://transition_screen.tscn"
 Global="*res://scripts/Global.gd"
 
