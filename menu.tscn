@@ -156,6 +156,11 @@ theme_override_fonts/font = ExtResource("2_f5p6m")
 theme_override_font_sizes/font_size = 55
 text = "Kitty Rush"
 
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 24.0
+autoplay = true
+bus = &"Music"
+
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]

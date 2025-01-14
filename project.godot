@@ -15,12 +15,20 @@ run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Options/default_bus_layout.tres"
+
 [autoload]
 
-global="*res://scripts/game_manager.gd"
+TransitionScreen="*res://transition_screen.tscn"
+Global="*res://scripts/Global.gd"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=4
 window/stretch/mode="viewport"
 
 [global_group]

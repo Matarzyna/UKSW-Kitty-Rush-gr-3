@@ -9,7 +9,8 @@ func _ready() -> void:
 		print("Gracz odnaleziony: ", player)
 	else:
 		print("Nie znaleziono gracza w grupie 'player'!")
-	$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play("5")
+	$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play(str(Global.globalLife))
+	check_life(Global.life)
 
 func check_life(life: int):
 	if life == 5:
@@ -21,12 +22,23 @@ func check_life(life: int):
 	elif life == 4:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
 	elif life == 3:
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
 	elif life == 2:
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D3.play("nothing")
 	elif life == 1:
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D3.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D2.play("nothing")
+		
 	elif life == 0:
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D3.play("nothing")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D2.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("nothing")
 		
 func show_game_over_screen():
@@ -43,23 +55,23 @@ func show_game_over_screen():
 
 func force_death():
 	if player != null:
-		player.globalLife -= 1
-		player.life = 5
-		if player.globalLife <= 0:
-			update_ui_life(player.life)
+		Global.globalLife -= 1
+		Global.life = 5
+		if Global.globalLife <= 0:
+			update_ui_life(Global.life)
 			show_game_over_screen()
 		else:
 			player.reset_to_checkpoint()  # Reset do punktu kontrolnego
 			print("Gracz został cofnięty do checkpointu:", player.death_position)
-			update_ui_life(player.life)
+			update_ui_life(Global.life)
 			reset_bushes()
 	else:
 		print("Gracz nie został znaleziony!")
 
 func update_ui_life(life: int):
 	if player != null:
-		var globalLife = player.globalLife
-		$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play(str(globalLife))
+		var globalLife = Global.globalLife
+		$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play(str(Global.globalLife))
 		check_life(life)
 
 func reset_bushes():
