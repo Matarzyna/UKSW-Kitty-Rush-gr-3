@@ -1,0 +1,163 @@
+[gd_scene load_steps=9 format=3 uid="uid://n65yh7sh2oh3"]
+
+[ext_resource type="Texture2D" uid="uid://dd6m8uodmrx8v" path="res://Zrzut ekranu 2024-12-18 143644.png" id="1_3rb6s"]
+[ext_resource type="Script" path="res://scripts/menus/menu.gd" id="1_fil21"]
+[ext_resource type="FontFile" uid="uid://7rp3kor7n1xm" path="res://PressStart2P-Regular.ttf" id="2_f5p6m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bq2ey"]
+texture = ExtResource("1_3rb6s")
+modulate_color = Color(0.509286, 0.509286, 0.509286, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7hh4w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnxke"]
+bg_color = Color(0.979991, 0.817369, 0.972384, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2q58"]
+bg_color = Color(0.968829, 0.674159, 0.960341, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dn1t"]
+bg_color = Color(0.990084, 0.916962, 0.985766, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[node name="menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fil21")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bq2ey")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -119.0
+offset_right = 225.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7hh4w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nnxke")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2q58")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0dn1t")
+text = "Start game"
+
+[node name="continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7hh4w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nnxke")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2q58")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0dn1t")
+text = "Continue"
+
+[node name="settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7hh4w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nnxke")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2q58")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0dn1t")
+text = "Settings"
+
+[node name="credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7hh4w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nnxke")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2q58")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0dn1t")
+text = "Credits"
+
+[node name="exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7hh4w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nnxke")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i2q58")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0dn1t")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -233.0
+offset_right = 275.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_f5p6m")
+theme_override_font_sizes/font_size = 55
+text = "Kitty Rush"
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

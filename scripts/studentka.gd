@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D  # Ścieżka do AnimatedSprite2D
 @onready var ray = $RayCast2D
 
+var life = 5
+var globalLife = 5
 var face_direction = "right"
 var is_moving = false  # Flaga kontrolująca, czy postać obecnie się porusza
 var move_direction = Vector2.ZERO  # Kierunek ruchu
@@ -12,6 +14,7 @@ var start_position = Vector2.ZERO  # Pozycja początkowa ruchu
 
 var death_position = Vector2(-104,80) #Pozycja checkpointu
 var is_destroy = false
+var is_lost_hp = false
 
 
 func _physics_process(delta):
@@ -26,16 +29,25 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity * delta)  # Sprawdź kolizję podczas ruchu
 		if collision:
 			if collision.get_collider().is_in_group("Killzone"):  # Grupa Killzone
-				force_death()
+				life -= 1;
+				notify_game_manager_check_life()
+				if life == 0:
+					notify_game_manager_force_death()
 				
 	elif is_destroy:
 			is_destroy = false
-
 	else:
 		handle_input()
 
+func notify_game_manager_check_life():
+	var game_manager = get_tree().get_nodes_in_group("GameManager")[0]
+	if game_manager:
+		game_manager.check_life(life)
 
-		
+func notify_game_manager_force_death():
+	var game_manager = get_tree().get_nodes_in_group("GameManager")[0]
+	if game_manager:
+		game_manager.force_death()
 
 func handle_input():
 	if Input.is_action_pressed("ui_up"):
@@ -86,7 +98,7 @@ func handle_input():
 	
 func start_attack(direction: String):
 	var collider = ray.get_collider()
-	if collider.is_in_group('bushs'):
+	if collider.is_in_group('bushes'):
 		if(direction == "left"):
 			animated_sprite_2d.play("destroy_l")
 		else:
@@ -104,7 +116,3 @@ func start_movement(direction: Vector2, animation: String):
 
 func reset_to_checkpoint():
 	global_position = death_position
-
-func force_death():
-	reset_to_checkpoint()
-	

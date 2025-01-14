@@ -1,0 +1,167 @@
+[gd_scene load_steps=12 format=3 uid="uid://cf2nminokdbg8"]
+
+[ext_resource type="Script" path="res://scripts/menus/PauseMenu.gd" id="1_23tgh"]
+[ext_resource type="FontFile" uid="uid://7rp3kor7n1xm" path="res://PressStart2P-Regular.ttf" id="2_2pn7h"]
+[ext_resource type="Script" path="res://scripts/menus/menu.gd" id="3_pycao"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dxhfy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crhfh"]
+bg_color = Color(0.979991, 0.817369, 0.972384, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c11w"]
+bg_color = Color(0.968829, 0.674159, 0.960341, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4thp"]
+bg_color = Color(0.990084, 0.916962, 0.985766, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ju8la"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phg41"]
+bg_color = Color(0.979991, 0.817369, 0.972384, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aewnp"]
+bg_color = Color(0.968829, 0.674159, 0.960341, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy7vw"]
+bg_color = Color(0.990084, 0.916962, 0.985766, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[node name="PauseCanvas" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_23tgh")
+
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="Label" type="Label" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 281.0
+offset_top = 71.0
+offset_right = 831.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_2pn7h")
+theme_override_font_sizes/font_size = 55
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+process_mode = 3
+layout_mode = 2
+offset_left = 429.0
+offset_top = 228.0
+offset_right = 724.0
+offset_bottom = 453.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+script = ExtResource("3_pycao")
+
+[node name="resume" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dxhfy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_crhfh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0c11w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4thp")
+text = "Resume"
+
+[node name="settings" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ju8la")
+theme_override_styles/hover = SubResource("StyleBoxFlat_phg41")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_aewnp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yy7vw")
+text = "Settings"
+
+[node name="menu" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dxhfy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_crhfh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0c11w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4thp")
+text = "Main menu"
+
+[node name="exit" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dxhfy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_crhfh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0c11w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4thp")
+text = "Exit"
+
+[connection signal="pressed" from="PauseMenu/VBoxContainer/resume" to="PauseMenu/VBoxContainer" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/settings" to="PauseMenu/VBoxContainer" method="_on_settings_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/menu" to="PauseMenu/VBoxContainer" method="_on_menu_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/exit" to="PauseMenu/VBoxContainer" method="_on_exit_pressed"]
