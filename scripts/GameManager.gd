@@ -1,6 +1,8 @@
 extends Node
 
 var player = null  # Referencja do gracza
+var globalLife = 5
+var life = 5
 
 func _ready() -> void:
 	var players = get_tree().get_nodes_in_group("player")
@@ -42,8 +44,8 @@ func force_death():
 
 func update_ui_life(life: int):
 	if player != null:
-		var globalLife = player.globalLife
-		$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play(str(globalLife))
+		self.globalLife = player.globalLife
+		$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play(str(self.globalLife))
 		check_life(life)
 
 func reset_bushes():
@@ -57,3 +59,13 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("force_death"):
 		force_death()
 		
+func save_game_state():
+	var save_data = {
+		"globalLife": self.globalLife,
+		"life": self.life
+	}
+	var file = FileAccess.open("res://saves/save_game.dat", FileAccess.WRITE)
+	if file:
+		file.store_var(save_data)
+		file.close()
+		print("Stan gry zapisany!")

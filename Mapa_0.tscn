@@ -2669,7 +2669,7 @@ position = Vector2(536, 112)
 position = Vector2(-88, 80)
 
 [node name="flag" parent="." instance=ExtResource("9_efkol")]
-position = Vector2(168, 144)
+position = Vector2(176, 144)
 
 [node name="kotek" parent="." instance=ExtResource("9_4yl4x")]
 position = Vector2(488, 136)
@@ -2678,6 +2678,7 @@ position = Vector2(488, 136)
 position = Vector2(744, 120)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_g4ab4")]
+visible = false
 
 [node name="Bushes" type="Node2D" parent="."]
 position = Vector2(200, 160)
@@ -2960,7 +2961,7 @@ position = Vector2(1224, 80)
 position = Vector2(1240, 72)
 
 [node name="flag" parent="Slimes" instance=ExtResource("9_efkol")]
-position = Vector2(1088, 16)
+position = Vector2(1096, 16)
 
 [node name="kotek8" parent="Slimes" instance=ExtResource("9_4yl4x")]
 position = Vector2(1128, 88)
@@ -3044,7 +3045,7 @@ position = Vector2(1224, -48)
 position = Vector2(1656, 16)
 
 [node name="flag2" parent="." instance=ExtResource("9_efkol")]
-position = Vector2(960, 176)
+position = Vector2(952, 176)
 
 [node name="kotek3" parent="." instance=ExtResource("9_4yl4x")]
 position = Vector2(-264, -24)
