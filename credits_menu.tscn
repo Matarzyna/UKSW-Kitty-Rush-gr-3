@@ -8,31 +8,23 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nnam"]
 texture = ExtResource("2_4tsfs")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ioflb"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8goqs"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xephi"]
-bg_color = Color(0.979991, 0.817369, 0.972384, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqopb"]
+bg_color = Color(0.843137, 0.827451, 0.980392, 0.129412)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eaol4"]
-bg_color = Color(0.968829, 0.674159, 0.960341, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bqrk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdq67"]
-bg_color = Color(0.990084, 0.916962, 0.985766, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xx07"]
+bg_color = Color(0.854902, 0.815686, 0.976471, 0.0745098)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7s0a"]
 
@@ -90,23 +82,20 @@ theme_override_fonts/font = ExtResource("1_fclum")
 theme_override_font_sizes/font_size = 55
 text = "Credits"
 
-[node name="Back" type="Button" parent="."]
+[node name="Exit" type="Button" parent="."]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 20.0
-offset_right = 140.0
+offset_right = 160.0
 offset_bottom = 62.0
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ioflb")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xephi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eaol4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_gdq67")
-text = "Back"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8goqs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sqopb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8bqrk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8xx07")
+text = "Exit"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -295,4 +284,4 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_m5kxo")
 
-[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_back_pressed"]
