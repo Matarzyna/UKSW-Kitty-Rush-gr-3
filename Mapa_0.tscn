@@ -2662,9 +2662,6 @@ tile_set = SubResource("TileSet_3waaj")
 tile_map_data = PackedByteArray("AAD8/wMAAQACAAsAAAD9/wMAAQADAAkAAAD7/wMAAQAAAAkAAAD8/wIAAQAGAAsAAAD7/wcAAQACAAcAAAD8/wcAAQABAAcAAAD8/wYAAQAAAAcAAAD9/wcAAQADAAcAAAADAAYAAAAEAAIAAAAEAAYAAAAFAAIAAAAXAAYAAQAHAAMAAAA=")
 tile_set = SubResource("TileSet_1ocjt")
 
-[node name="slime" parent="." instance=ExtResource("6_bx2o1")]
-position = Vector2(536, 112)
-
 [node name="Studentka" parent="." instance=ExtResource("6_5eior")]
 position = Vector2(-88, 80)
 
@@ -3033,6 +3030,9 @@ position = Vector2(1208, -136)
 
 [node name="slimeLR17" parent="Slimes" instance=ExtResource("13_8ya4u")]
 position = Vector2(1240, -136)
+
+[node name="slime" parent="Slimes" instance=ExtResource("6_bx2o1")]
+position = Vector2(536, 112)
 
 [node name="Checkpoints" type="Node" parent="."]
 
