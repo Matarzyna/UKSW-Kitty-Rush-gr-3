@@ -53,6 +53,9 @@ func show_game_over_screen():
 		pause_menu.is_game_over = true
 	else:
 		print("PauseCanvas not found")
+		
+	Global.reset_game()
+	SaveManager.save_game()
 
 func force_death():
 	if player != null:
