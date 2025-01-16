@@ -47,8 +47,7 @@ func _on_settings_pressed() -> void:
 
 func _on_credits_pressed() -> void:
 	print("Credits pressed")
-	TransitionScreen.transition()
-	await TransitionScreen.on_transition_finished
+	get_tree().change_scene_to_file("res://credits_menu.tscn")
 
 func _on_exit_pressed() -> void:
 	print("Exit pressed")
@@ -63,13 +62,19 @@ func _on_resume_pressed() -> void:
 		Global.pause_menu.resume()
 	else:
 		print("PauseCanvas not found!")
-		
+
+
 func _on_pause_button_pressed() -> void:
 	print("Pause pressed")
 	if Global.pause_menu:
 		Global.pause_menu.pause()
 	else:
 		print("PauseCanvas not found!")
+
+
+func _on_back_pressed() -> void:
+	print("Back pressed")
+	get_tree().change_scene_to_file("res://menu.tscn")
 		
 func _on_exit_button_pressed():
 	print("Exit pressed")

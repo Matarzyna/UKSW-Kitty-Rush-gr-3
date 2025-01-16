@@ -1,0 +1,287 @@
+[gd_scene load_steps=17 format=3 uid="uid://c5yn0k0rvm2uv"]
+
+[ext_resource type="FontFile" uid="uid://7rp3kor7n1xm" path="res://PressStart2P-Regular.ttf" id="1_fclum"]
+[ext_resource type="Script" path="res://scripts/menus/menu.gd" id="1_v8hfm"]
+[ext_resource type="Texture2D" uid="uid://dt7n12fo1j3xt" path="res://Zrzut ekranu 2025-01-09 184407.png" id="2_4tsfs"]
+[ext_resource type="Texture2D" uid="uid://cndhxv13schj4" path="res://logo_godot.png" id="4_eklyy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nnam"]
+texture = ExtResource("2_4tsfs")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8goqs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqopb"]
+bg_color = Color(0.843137, 0.827451, 0.980392, 0.129412)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bqrk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xx07"]
+bg_color = Color(0.854902, 0.815686, 0.976471, 0.0745098)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7s0a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_04csi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3kki"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n02v6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e2ocs"]
+
+[sub_resource type="Theme" id="Theme_myjrs"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_n7s0a")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_04csi")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_w3kki")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_n02v6")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_e2ocs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5kxo"]
+texture = ExtResource("4_eklyy")
+texture_margin_left = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v8hfm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6nnam")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.5
+offset_top = 59.0
+offset_right = 192.5
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 160.0
+offset_bottom = 62.0
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8goqs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sqopb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8bqrk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8xx07")
+text = "Exit"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -173.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_myjrs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MC" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 45
+text = "Main Character"
+horizontal_alignment = 1
+
+[node name="MClink" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 20
+text = "https://butterymilk.itch.io/tiny-wonder-forest
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Kitties" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 45
+text = "Kitties"
+horizontal_alignment = 1
+
+[node name="Kittieslink" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 20
+text = "https://mxmaze.itch.io/32-bit-cat-free
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 45
+text = "Enemy"
+horizontal_alignment = 1
+
+[node name="Enemylink" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 20
+text = "https://spriteshift.itch.io/purple-dungeon-tileset
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tileset" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 45
+text = "Tileset"
+horizontal_alignment = 1
+
+[node name="Tilesetlink" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 20
+text = "https://pixelfrog-assets.itch.io/kings-and-pigs
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bush" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 45
+text = "Bush"
+horizontal_alignment = 1
+
+[node name="Bushlink" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 20
+text = "https://butterymilk.itch.io/tiny-wonder-forest
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Madeby" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 45
+text = "
+Made By"
+horizontal_alignment = 1
+
+[node name="Madeby_" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 20
+text = "Katarzyna, Patrycja, Jagoda, Marcin
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MadeIn" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 45
+text = "
+Made In"
+horizontal_alignment = 1
+
+[node name="MadeIn_" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_fclum")
+theme_override_font_sizes/font_size = 20
+text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="ScrollContainer/VBoxContainer/MadeIn_"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -399.0
+offset_top = -15.0
+offset_right = 399.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_m5kxo")
+
+[connection signal="pressed" from="Exit" to="." method="_on_back_pressed"]

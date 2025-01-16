@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2xiuvpo787i3"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_7rdif"]
+[ext_resource type="Script" path="res://scripts/menus/menu.gd" id="1_7rdif"]
 [ext_resource type="Texture2D" uid="uid://dd6m8uodmrx8v" path="res://Zrzut ekranu 2024-12-18 143644.png" id="2_m0gw2"]
 [ext_resource type="FontFile" uid="uid://7rp3kor7n1xm" path="res://PressStart2P-Regular.ttf" id="3_mpytb"]
 [ext_resource type="PackedScene" uid="uid://dt3pyaf5oka3n" path="res://Options/settings_tab_container.tscn" id="4_0p4re"]

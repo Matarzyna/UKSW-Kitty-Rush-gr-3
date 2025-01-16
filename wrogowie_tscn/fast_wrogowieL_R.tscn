@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2n5cjovfdyn8"]
+[gd_scene load_steps=13 format=3 uid="uid://c2n5cjovfdyn8"]
 
-[ext_resource type="Texture2D" uid="uid://belf13a0bosdb" path="res://assets/Sprites/PurpleDungeon/slime.png" id="1_o0y21"]
+[ext_resource type="Texture2D" uid="uid://d2ddykq3y2xk3" path="res://assets/Sprites/PurpleDungeon/fast slime.png" id="1_fjevp"]
 [ext_resource type="PackedScene" uid="uid://id0l3ei3a4pe" path="res://killzone.tscn" id="2_alteb"]
 
 [sub_resource type="GDScript" id="GDScript_exyag"]
@@ -45,50 +45,57 @@ func _process(delta: float) -> void:
 	position.x += direction * speed * delta
 "
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_36fg6"]
-atlas = ExtResource("1_o0y21")
-region = Rect2(0, 0, 32, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv57o"]
+atlas = ExtResource("1_fjevp")
+region = Rect2(32, 16, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8t0da"]
-atlas = ExtResource("1_o0y21")
-region = Rect2(32, 0, 32, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7467v"]
+atlas = ExtResource("1_fjevp")
+region = Rect2(64, 16, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sqlo0"]
-atlas = ExtResource("1_o0y21")
-region = Rect2(64, 0, 32, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdxjp"]
+atlas = ExtResource("1_fjevp")
+region = Rect2(96, 16, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_edluv"]
-atlas = ExtResource("1_o0y21")
-region = Rect2(96, 0, 32, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_anj7j"]
+atlas = ExtResource("1_fjevp")
+region = Rect2(128, 16, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a6g7w"]
-atlas = ExtResource("1_o0y21")
-region = Rect2(128, 0, 32, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfj0d"]
+atlas = ExtResource("1_fjevp")
+region = Rect2(160, 16, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_snxmh"]
-atlas = ExtResource("1_o0y21")
-region = Rect2(160, 0, 32, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0ani"]
+atlas = ExtResource("1_fjevp")
+region = Rect2(192, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i8ye"]
+atlas = ExtResource("1_fjevp")
+region = Rect2(224, 16, 32, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i3ft0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_36fg6")
+"texture": SubResource("AtlasTexture_fv57o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8t0da")
+"texture": SubResource("AtlasTexture_7467v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sqlo0")
+"texture": SubResource("AtlasTexture_vdxjp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_edluv")
+"texture": SubResource("AtlasTexture_anj7j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a6g7w")
+"texture": SubResource("AtlasTexture_dfj0d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_snxmh")
+"texture": SubResource("AtlasTexture_t0ani")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i8ye")
 }],
 "loop": true,
 "name": &"default",
@@ -105,7 +112,6 @@ script = SubResource("GDScript_exyag")
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_i3ft0")
 autoplay = "default"
-frame_progress = 0.827526
 flip_h = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]

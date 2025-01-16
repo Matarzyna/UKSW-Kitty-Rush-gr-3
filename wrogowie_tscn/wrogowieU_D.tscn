@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cb2xd58iuf5bi"]
 
 [ext_resource type="Texture2D" uid="uid://belf13a0bosdb" path="res://assets/Sprites/PurpleDungeon/slime.png" id="1_455b2"]
-[ext_resource type="Script" path="res://scripts/wrogowie_u_d.gd" id="1_ftf14"]
+[ext_resource type="Script" path="res://scripts/wrogowie_scr/wrogowie_u_d.gd" id="1_ftf14"]
 [ext_resource type="PackedScene" uid="uid://id0l3ei3a4pe" path="res://killzone.tscn" id="2_g62j7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36fg6"]
