@@ -5,20 +5,11 @@ var pause_canvas = null
 func set_pause_canvas(canvas):
 	Global.pause_menu = canvas
 
-func reset_kitty_counter():
-	var kitty_counter = get_node("/root/Levels/CanvasLayerKC/Kitty counter")
-	if kitty_counter != null:
-		kitty_counter.reset_cat_count()
-		print("Cat counter reset successfully.")
-	else:
-		print("Kitty_Counter node not found! Cannot reset cat count.")
-		
-func reset_life():
-	Global.globalLife = 5
-	Global.life = 5
-
 func _on_start_pressed() -> void:
 	print("Start pressed")
+	
+	Global.reset_game()
+	
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
 	get_tree().change_scene_to_file("res://Mapa_0.tscn")
@@ -27,12 +18,16 @@ func _on_continue_pressed() -> void:
 	print("Continue pressed")
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
+	get_tree().change_scene_to_file("res://Mapa_0.tscn")
+	SaveManager.load_game()
 	
 func _on_restart_pressed() -> void:
 	print("Restart pressed")
-	reset_kitty_counter()
 	get_tree().paused = false
 	Global.set_paused(false)
+	
+	Global.reset_game()
+	
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
 	get_tree().change_scene_to_file("res://Mapa_0.tscn")
@@ -43,10 +38,6 @@ func _on_menu_pressed() -> void:
 	Global.set_paused(false)
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
-	
-	reset_kitty_counter()
-	reset_life()
-	
 	get_tree().change_scene_to_file("res://menu.tscn")
 	
 func _on_settings_pressed() -> void:

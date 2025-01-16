@@ -7,6 +7,7 @@ func _ready() -> void:
 	if players.size() > 0:
 		player = players[0]
 		print("Gracz odnaleziony: ", player)
+		player.reset_to_checkpoint()
 	else:
 		print("Nie znaleziono gracza w grupie 'player'!")
 	$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play(str(Global.globalLife))
@@ -62,7 +63,7 @@ func force_death():
 			show_game_over_screen()
 		else:
 			player.reset_to_checkpoint()  # Reset do punktu kontrolnego
-			print("Gracz został cofnięty do checkpointu:", player.death_position)
+			print("Gracz został cofnięty do checkpointu:", Global.death_position)
 			update_ui_life(Global.life)
 			reset_bushes()
 	else:
@@ -84,4 +85,3 @@ func reset_bushes():
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("force_death"):
 		force_death()
-		

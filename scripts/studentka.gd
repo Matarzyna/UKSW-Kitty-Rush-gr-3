@@ -12,7 +12,6 @@ var move_direction = Vector2.ZERO  # Kierunek ruchu
 var move_timer = 0.0  # Licznik czasu dla ruchu
 var start_position = Vector2.ZERO  # Pozycja początkowa ruchu
 
-var death_position = Vector2(-104,80) #Pozycja checkpointu
 var is_destroy = false
 var is_lost_hp = false
 
@@ -111,8 +110,8 @@ func start_movement(direction: Vector2, animation: String):
 	is_moving = true
 	move_direction = direction
 	move_timer = 0.0
-	start_position = global_position
+	start_position = Global.death_position
 	animated_sprite_2d.play(animation)
 
 func reset_to_checkpoint():
-	global_position = death_position
+	global_position = Global.death_position

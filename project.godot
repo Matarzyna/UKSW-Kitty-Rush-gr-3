@@ -23,6 +23,7 @@ buses/default_bus_layout="res://Options/default_bus_layout.tres"
 
 TransitionScreen="*res://transition_screen.tscn"
 Global="*res://scripts/Global.gd"
+SaveManager="*res://scripts/save_manager.gd"
 
 [display]
 

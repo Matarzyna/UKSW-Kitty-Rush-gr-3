@@ -42,7 +42,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxhpb"]
 radius = 6.08276
 
-[node name="kotek" type="Area2D"]
+[node name="kotek" type="Area2D" groups=["cats"]]
 collision_mask = 4
 script = ExtResource("1_ew0uc")
 
