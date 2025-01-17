@@ -52,11 +52,11 @@ func _check_on_kitty() -> void:
 		# Opcjonalnie: zapobiegnij natychmiastowej zmianie pozycji
 		global_position = _clamp_position_to_container(global_position)
 
-func _clamp_position_to_container(position: Vector2) -> Vector2:
+func _clamp_position_to_container(input_position: Vector2) -> Vector2:
 	# Upewnij się, że kontener istnieje
 	if purple_container == null:
 		print("Error: PurpleContainer is not assigned!")
-		return position
+		return input_position
 
 	# Pobierz granice kontenera
 	var container_rect := purple_container.get_global_rect()
@@ -66,7 +66,7 @@ func _clamp_position_to_container(position: Vector2) -> Vector2:
 	var half_height := target_size.y / 2
 
 	# Ogranicz pozycję, biorąc pod uwagę rozmiar targetu
-	position.x = clamp(position.x, container_rect.position.x + half_width, container_rect.position.x + container_rect.size.x - half_width)
-	position.y = clamp(position.y, container_rect.position.y + half_height, container_rect.position.y + container_rect.size.y - half_height)
+	input_position.x = clamp(input_position.x, container_rect.position.x + half_width, container_rect.position.x + container_rect.size.x - half_width)
+	input_position.y = clamp(input_position.y, container_rect.position.y + half_height, container_rect.position.y + container_rect.size.y - half_height)
 
-	return position
+	return input_position

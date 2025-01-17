@@ -95,10 +95,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Target" parent="." instance=ExtResource("5_y17c6")]
-position = Vector2(644, 382)
+position = Vector2(638, 438)
 
 [node name="KittyToCatch" parent="." instance=ExtResource("6_53ow4")]
-position = Vector2(585, 291)
+position = Vector2(743, 434)
 
 [connection signal="target_entered" from="Target" to="kitty_catching_game" method="_on_target_target_entered"]
 [connection signal="target_exited" from="Target" to="kitty_catching_game" method="_on_target_target_exited"]

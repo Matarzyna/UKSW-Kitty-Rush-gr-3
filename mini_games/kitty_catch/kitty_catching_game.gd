@@ -10,10 +10,22 @@ var catchingValue := 0.0
 var isCatchComplete := false  # Flaga oznaczająca zakończenie łapania
 
 func _ready() -> void:
-	# Ukryj wiadomość na początku
-	message_label.visible = false
+	# Wyświetl wiadomość "Złap kotka!" na początku
+	message_label.text = "Catch the kitty!"
+	message_label.visible = true
 
-func _physics_process(delta: float) -> void:
+	# Uruchom timer, aby ukryć wiadomość po 2 sekundach
+	var timer = Timer.new()
+	timer.wait_time = 2.0  # Czas wyświetlania wiadomości w sekundach
+	timer.one_shot = true
+	add_child(timer)
+	timer.start()
+	timer.timeout.connect(_hide_start_message)
+
+func _hide_start_message() -> void:
+	message_label.visible = false  # Ukryj wiadomość po 2 sekundach
+
+func _physics_process(_delta: float) -> void:
 	if isCatchComplete:
 		return  # Zatrzymujemy aktualizację, jeśli pasek osiągnął 100%
 
