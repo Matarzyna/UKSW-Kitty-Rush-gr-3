@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://0dh25jb7pcbd"]
+
+[ext_resource type="Script" path="res://mini_games/kitty_catch/kitty_to_catch.gd" id="1_cfv2b"]
+[ext_resource type="Texture2D" uid="uid://cjhpsfx6w1h0u" path="res://assets/Cat Sprite Sheet.png" id="2_5rnoi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gnd8"]
+atlas = ExtResource("2_5rnoi")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fng11"]
+atlas = ExtResource("2_5rnoi")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi5yo"]
+atlas = ExtResource("2_5rnoi")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_671xq"]
+atlas = ExtResource("2_5rnoi")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5rf5"]
+atlas = ExtResource("2_5rnoi")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev2i6"]
+atlas = ExtResource("2_5rnoi")
+region = Rect2(160, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvnro"]
+atlas = ExtResource("2_5rnoi")
+region = Rect2(192, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7c0n"]
+atlas = ExtResource("2_5rnoi")
+region = Rect2(224, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_neygx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gnd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fng11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi5yo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_671xq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5rf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev2i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvnro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7c0n")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7f4f"]
+radius = 10.0125
+
+[node name="KittyToCatch" type="CharacterBody2D"]
+script = ExtResource("1_cfv2b")
+
+[node name="kitty_sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 2)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_neygx")
+animation = &"move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 32)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_d7f4f")
