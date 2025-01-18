@@ -2,14 +2,25 @@ extends Control
 
 @onready var catch_bar: ProgressBar = %CatchBar
 @onready var kitty_to_catch: CharacterBody2D = $"../KittyToCatch"
+
 @onready var message_label: Label = $messageLabel
+@onready var target: Area2D = $"../Target"
 
 var onCatch := false
 var catchSpeed := 0.3
 var catchingValue := 0.0
 var isCatchComplete := false  # Flaga oznaczająca zakończenie łapania
+var is_game_active := false  # Czy gra jest aktywna
 
 func _ready() -> void:
+
+	# Ukryj kota na starcie
+	if kitty_to_catch:
+		kitty_to_catch.visible = false
+	else:
+		print("Error: KittyToCatch is not assigned or null.")
+	
+	
 	# Wyświetl wiadomość "Złap kotka!" na początku
 	message_label.text = "Catch the kitty!"
 	message_label.visible = true
@@ -24,8 +35,17 @@ func _ready() -> void:
 
 func _hide_start_message() -> void:
 	message_label.visible = false  # Ukryj wiadomość po 2 sekundach
-
+	# Pokaż kota
+	if kitty_to_catch:
+		kitty_to_catch.visible = true
+	else:
+		print("Error: KittyToCatch is not assigned or null.")
+	is_game_active = true  # Aktywuj grę	
+		
 func _physics_process(_delta: float) -> void:
+	if not is_game_active or isCatchComplete:
+		return
+	
 	if isCatchComplete:
 		return  # Zatrzymujemy aktualizację, jeśli pasek osiągnął 100%
 
@@ -51,7 +71,13 @@ func _cat_caught() -> void:
 		kitty_to_catch.visible = false  # Ukryj kota
 	else:
 		print("Error: KittyToCatch is not assigned or null.")
+	# Ukryj target
+	if target:
+		target.visible = false
+	else:
+		print("Error: Target is not assigned or null.")
 
+		
 	# Wyświetl wiadomość
 	message_label.text = "You caught the kitty!"
 	message_label.visible = true
@@ -66,7 +92,10 @@ func _cat_caught() -> void:
 
 func _close_game() -> void:
 	print("Zamykanie gry...")
-	get_tree().quit()  # Zamyka aplikację
+	# Usuń target, jeśli istnieje
+	if target and is_instance_valid(target):
+		target.queue_free()
+	queue_free() 
 
 func _on_target_target_entered() -> void:
 	# Zdarzenie: kot został złapany

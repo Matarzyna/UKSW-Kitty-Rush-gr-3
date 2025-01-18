@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=3 uid="uid://dy1auunt5tt7j"]
+
+[ext_resource type="Script" path="res://mini_games/kitty_catch/kitty_catching_game.gd" id="1_o7wxn"]
+[ext_resource type="Texture2D" uid="uid://pv86fw1cnp56" path="res://mini_games/Box_Blank_Square.png" id="2_wd0ow"]
+[ext_resource type="Texture2D" uid="uid://b6wg5igy2pgt4" path="res://mini_games/SlimSlider_Background.png" id="3_u2beh"]
+[ext_resource type="Texture2D" uid="uid://x2ulmbjoy01a" path="res://mini_games/SlimSlider_Base.png" id="4_lwaxb"]
+[ext_resource type="PackedScene" uid="uid://d3k431kpr4tug" path="res://mini_games/kitty_catch/target.tscn" id="5_d30mn"]
+[ext_resource type="PackedScene" uid="uid://0dh25jb7pcbd" path="res://mini_games/kitty_catch/kitty_to_catch.tscn" id="6_4fbcw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kjce3"]
+texture = ExtResource("2_wd0ow")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sviaj"]
+texture = ExtResource("3_u2beh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3w5x"]
+texture = ExtResource("4_lwaxb")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hkhbk"]
+bg_color = Color(0.586182, 0.481178, 0.851107, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[node name="Kitty_catching" type="CanvasLayer"]
+process_mode = 3
+metadata/_edit_vertical_guides_ = [417.0]
+metadata/_edit_horizontal_guides_ = [248.0]
+
+[node name="kitty_catching_game" type="Control" parent="."]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o7wxn")
+
+[node name="PanelContainer" type="PanelContainer" parent="kitty_catching_game"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kjce3")
+
+[node name="MarginContainer" type="MarginContainer" parent="kitty_catching_game/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="kitty_catching_game/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="kitty_catching_game/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CatchBar" type="ProgressBar" parent="kitty_catching_game/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxTexture_sviaj")
+theme_override_styles/fill = SubResource("StyleBoxTexture_x3w5x")
+show_percentage = false
+
+[node name="PurpleContainer" type="PanelContainer" parent="kitty_catching_game/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hkhbk")
+
+[node name="messageLabel" type="Label" parent="kitty_catching_game"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -35.0
+offset_right = 73.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Target" parent="." instance=ExtResource("5_d30mn")]
+position = Vector2(638, 438)
+
+[node name="KittyToCatch" parent="." instance=ExtResource("6_4fbcw")]
+position = Vector2(743, 434)
+
+[connection signal="target_entered" from="Target" to="kitty_catching_game" method="_on_target_target_entered"]
+[connection signal="target_exited" from="Target" to="kitty_catching_game" method="_on_target_target_exited"]
