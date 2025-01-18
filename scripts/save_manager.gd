@@ -3,35 +3,7 @@ extends Node
 const SAVE_FILE_PATH = "user://save_game.dat"
 
 func save_game():
-	# Zapisywanie stanów krzaków
-	var bushes = get_tree().get_nodes_in_group("bushes")
-	Global.bushes_state.clear()
-	for bush in bushes:
-		Global.bushes_state[bush.name] = {
-			"is_destroyed": bush.is_destroy,
-			"visible": bush.visible
-		}
-	print("Stany krzaków zapisane")
-
-	# Zapisywanie stanów kotków
-	var cats = get_tree().get_nodes_in_group("cats")
-	Global.cats_state.clear()
-	for cat in cats:
-		Global.cats_state[cat.name] = {
-			"is_collected": cat.is_collected,
-			"visible": cat.visible
-		}
-	print("Stany kotków zapisane")
-	
-	# Zapisywanie stanów skrzynek
-	var chests = get_tree().get_nodes_in_group("chests")
-	Global.chests_state.clear()
-	for chest in chests:
-		Global.chests_state[chest.name] = {
-			"is_opened": chest.is_opened,
-		}
-	print("Stany kotków zapisane")
-
+	save_state()
 	# Zapis danych do pliku
 	var save_data = {
 		"bushes_state": Global.bushes_state,
@@ -69,3 +41,33 @@ func load_game():
 		Global.life = save_data.get("life", 5)
 		Global.cat_counter = save_data.get("cat_counter", 0)
 		print("Gra wczytana!")
+
+func save_state():
+	# Zapisywanie stanów krzaków
+	var bushes = get_tree().get_nodes_in_group("bushes")
+	Global.bushes_state.clear()
+	for bush in bushes:
+		Global.bushes_state[bush.name] = {
+			"is_destroyed": bush.is_destroy,
+			"visible": bush.visible
+		}
+	print("Stany krzaków zapisane")
+
+	# Zapisywanie stanów kotków
+	var cats = get_tree().get_nodes_in_group("cats")
+	Global.cats_state.clear()
+	for cat in cats:
+		Global.cats_state[cat.name] = {
+			"is_collected": cat.is_collected,
+			"visible": cat.visible
+		}
+	print("Stany kotków zapisane")
+	
+	# Zapisywanie stanów skrzynek
+	var chests = get_tree().get_nodes_in_group("chests")
+	Global.chests_state.clear()
+	for chest in chests:
+		Global.chests_state[chest.name] = {
+			"is_opened": chest.is_opened,
+		}
+	print("Stany kotków zapisane")

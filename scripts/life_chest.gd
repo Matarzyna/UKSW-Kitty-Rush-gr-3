@@ -29,7 +29,7 @@ func _on_body_exited(body: Node) -> void:
 	if body.name == "Studentka":
 		is_player_nearby = false  # Gracz opuścił obszar
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("open_chest") and is_player_nearby and not is_opened and not is_opening:
 		_open_chest()
 
