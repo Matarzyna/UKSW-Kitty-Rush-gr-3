@@ -68,7 +68,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 13.0
+"speed": 14.0
 }]
 
 [node name="Pułapka" type="Node2D" groups=["Pułapka"]]
