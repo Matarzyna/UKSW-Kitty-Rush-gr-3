@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3gc1juewcuni"]
+
+[ext_resource type="PackedScene" uid="uid://bk7w4efuw7cd" path="res://scripts/pułapka.tscn" id="1_2fnhq"]
+
+[node name="OgienPo3" type="Node2D"]
+position = Vector2(-8, 80)
+
+[node name="Pułapka4" parent="." instance=ExtResource("1_2fnhq")]
+position = Vector2(0, 0)
+
+[node name="Pułapka" parent="." instance=ExtResource("1_2fnhq")]
+position = Vector2(16, 0)
+animation_start_delay = 0.5
+
+[node name="Pułapka2" parent="." instance=ExtResource("1_2fnhq")]
+position = Vector2(32, 0)
+animation_start_delay = 0.0

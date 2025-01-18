@@ -1,0 +1,137 @@
+[gd_scene load_steps=19 format=3 uid="uid://b70obqdgqy1fb"]
+
+[ext_resource type="Script" path="res://pułapka.gd" id="1_51fqb"]
+[ext_resource type="PackedScene" uid="uid://id0l3ei3a4pe" path="res://killzone.tscn" id="2_nq2vm"]
+[ext_resource type="Texture2D" uid="uid://c5bf6tr0kpedt" path="res://assets/trap/trap0.png" id="3_yeipn"]
+[ext_resource type="Texture2D" uid="uid://ca6udvfwpd5s0" path="res://assets/trap/trap1.png" id="4_0qtq5"]
+[ext_resource type="Texture2D" uid="uid://oncqd0kpsbja" path="res://assets/trap/trap2.png" id="5_en3fa"]
+[ext_resource type="Texture2D" uid="uid://dtchc4oqw7g3y" path="res://assets/trap/trap3.png" id="6_vcwpt"]
+[ext_resource type="Texture2D" uid="uid://byqefp04w4hw4" path="res://assets/trap/trap4.png" id="7_bbld5"]
+[ext_resource type="Texture2D" uid="uid://upx2deulvv2q" path="res://assets/trap/trap5.png" id="8_w1p5x"]
+[ext_resource type="Texture2D" uid="uid://bkiksbijoitsa" path="res://assets/trap/trap6.png" id="9_52dxk"]
+[ext_resource type="Texture2D" uid="uid://mjghqtltnyoh" path="res://assets/trap/trap8.png" id="10_lys68"]
+[ext_resource type="Texture2D" uid="uid://d3ycjia5gqcwa" path="res://assets/trap/trap9.png" id="11_h2uom"]
+[ext_resource type="Texture2D" uid="uid://borntxwrkacfl" path="res://assets/trap/trap10.png" id="12_x8doa"]
+[ext_resource type="Texture2D" uid="uid://bsxjv5ik06ka6" path="res://assets/trap/trap11.png" id="13_hn64e"]
+[ext_resource type="Texture2D" uid="uid://ckgfyd2oavacw" path="res://assets/trap/trap12.png" id="14_1b5kk"]
+[ext_resource type="Texture2D" uid="uid://2wrvkkgmaqix" path="res://assets/trap/trap13.png" id="15_aojdo"]
+[ext_resource type="Texture2D" uid="uid://cik8tu6u1hnmy" path="res://assets/trap/trap14.png" id="16_mdkhb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uisqe"]
+radius = 4.85299
+height = 18.3663
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_32051"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yeipn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0qtq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_en3fa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vcwpt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bbld5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w1p5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_52dxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lys68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_h2uom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_x8doa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hn64e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1b5kk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_aojdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mdkhb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
+
+[node name="Node" type="Node"]
+
+[node name="Pułapka" type="Node2D" parent="."]
+position = Vector2(-80, 120)
+script = ExtResource("1_51fqb")
+
+[node name="Area2D" parent="Pułapka" instance=ExtResource("2_nq2vm")]
+position = Vector2(0, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pułapka/Area2D"]
+position = Vector2(9.53674e-07, 5.23037)
+scale = Vector2(1.64847, 0.846074)
+shape = SubResource("CapsuleShape2D_uisqe")
+
+[node name="Timer" type="Timer" parent="Pułapka"]
+wait_time = 3.0
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pułapka"]
+scale = Vector2(0.32, 0.32)
+sprite_frames = SubResource("SpriteFrames_32051")
+frame_progress = 0.122191
+
+[node name="Pułapka2" type="Node2D" parent="."]
+position = Vector2(-160, 240)
+script = ExtResource("1_51fqb")
+
+[node name="Area2D" parent="Pułapka2" instance=ExtResource("2_nq2vm")]
+position = Vector2(0, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pułapka2/Area2D"]
+position = Vector2(9.53674e-07, 5.23037)
+scale = Vector2(1.64847, 0.846074)
+shape = SubResource("CapsuleShape2D_uisqe")
+
+[node name="Timer" type="Timer" parent="Pułapka2"]
+wait_time = 3.0
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pułapka2"]
+scale = Vector2(0.32, 0.32)
+sprite_frames = SubResource("SpriteFrames_32051")
+frame_progress = 0.350791
+
+[node name="Pułapka3" type="Node2D" parent="."]
+position = Vector2(-144, 240)
+script = ExtResource("1_51fqb")
+
+[node name="Area2D" parent="Pułapka3" instance=ExtResource("2_nq2vm")]
+position = Vector2(0, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pułapka3/Area2D"]
+position = Vector2(9.53674e-07, 5.23037)
+scale = Vector2(1.64847, 0.846074)
+shape = SubResource("CapsuleShape2D_uisqe")
+
+[node name="Timer" type="Timer" parent="Pułapka3"]
+wait_time = 3.0
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pułapka3"]
+scale = Vector2(0.32, 0.32)
+sprite_frames = SubResource("SpriteFrames_32051")
+frame_progress = 0.350791
