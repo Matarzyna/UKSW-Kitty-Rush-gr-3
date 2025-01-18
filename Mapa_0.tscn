@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=44 format=4 uid="uid://cg2de6wjkemhw"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_bb18c"]
 [ext_resource type="Texture2D" uid="uid://b6neg4hgcnti1" path="res://assets/sprite sheet 16x16px seamless textures.png" id="1_or2n3"]
@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://cb2xd58iuf5bi" path="res://wrogowie_tscn/wrogowieU_D.tscn" id="12_pkg0m"]
 [ext_resource type="Texture2D" uid="uid://dpddvjpok7odc" path="res://assets/Keyboard Letters and Symbols.png" id="12_xptng"]
 [ext_resource type="PackedScene" uid="uid://c2n5cjovfdyn8" path="res://wrogowie_tscn/fast_wrogowieL_R.tscn" id="13_8ya4u"]
+[ext_resource type="FontFile" uid="uid://7rp3kor7n1xm" path="res://PressStart2P-Regular.ttf" id="14_5hv7t"]
+[ext_resource type="Texture2D" uid="uid://cjhpsfx6w1h0u" path="res://assets/Cat Sprite Sheet.png" id="14_wh8nb"]
 [ext_resource type="PackedScene" uid="uid://csnejn2m0uimx" path="res://wrogowie_tscn/fast_wrogowieU_D.tscn" id="14_wrn8i"]
 [ext_resource type="PackedScene" uid="uid://cf2nminokdbg8" path="res://Pause.tscn" id="22_kyv12"]
 [ext_resource type="PackedScene" uid="uid://dqs3fqatf5flq" path="res://GameOver.tscn" id="23_3sqkn"]
@@ -2630,17 +2632,6 @@ script = ExtResource("1_bb18c")
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("2_s5fve")
 
-[node name="CanvasLayerKC" type="CanvasLayer" parent="."]
-
-[node name="Kitty counter" type="Label" parent="CanvasLayerKC"]
-offset_left = 48.0
-offset_top = 624.0
-offset_right = 148.0
-offset_bottom = 674.0
-theme_override_font_sizes/font_size = 36
-text = "Kitty: "
-script = ExtResource("3_o8enq")
-
 [node name="Where levels" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAEAAIAAwADAAAAAABZAP7/AwADAAAAAABaAP7/AwADAAAAAACFAPr/AwADAAAAAACGAPr/AwADAAAAAACHAPr/AwADAAAAAAC6AAAAAwADAAAAAAC7AAAAAwADAAAAAAC8AAAAAwADAAAAAAC9AAAAAwADAAAAAADyAPL/AwADAAAAAADzAPL/AwADAAAAAAD0APL/AwADAAAAAAD1APL/AwADAAAAAAD2APL/AwADAAAAAAA=")
 tile_set = SubResource("TileSet_h75d1")
@@ -2667,8 +2658,26 @@ position = Vector2(-88, 80)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_g4ab4")]
 
-[node name="flag" parent="." instance=ExtResource("9_efkol")]
-position = Vector2(168, 144)
+[node name="CanvasLayerKC" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayerKC"]
+position = Vector2(1056, 32)
+scale = Vector2(3, 3)
+texture = ExtResource("14_wh8nb")
+region_enabled = true
+region_rect = Rect2(7.29833, 214.022, 18.4269, 10.0181)
+
+[node name="Kitty counter" type="Label" parent="CanvasLayerKC"]
+offset_left = 1080.0
+offset_right = 1332.0
+offset_bottom = 60.0
+scale = Vector2(1.08883, 1.13925)
+theme_override_colors/font_color = Color(0.964706, 0.960784, 0.980392, 1)
+theme_override_fonts/font = ExtResource("14_5hv7t")
+theme_override_font_sizes/font_size = 33
+text = "0"
+vertical_alignment = 1
+script = ExtResource("3_o8enq")
 
 [node name="Bushes" type="Node2D" parent="."]
 position = Vector2(200, 160)
@@ -3047,6 +3056,9 @@ position = Vector2(-72, 80)
 
 [node name="flag5" parent="Checkpoints" instance=ExtResource("9_efkol")]
 position = Vector2(1088, 16)
+
+[node name="flag" parent="Checkpoints" instance=ExtResource("9_efkol")]
+position = Vector2(168, 144)
 
 [node name="PauseCanvas" parent="." instance=ExtResource("22_kyv12")]
 
