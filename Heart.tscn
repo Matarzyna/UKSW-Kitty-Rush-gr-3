@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmqdk4mcrx3cv"]
+
+[ext_resource type="Script" path="res://scripts/heart.gd" id="1_1rf3x"]
+[ext_resource type="Texture2D" uid="uid://dofxgjd37jsms" path="res://assets/Sprites/12-Live and Coins/Small Heart Idle (18x14).png" id="1_a1d04"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjdbs"]
+atlas = ExtResource("1_a1d04")
+region = Rect2(6, 2, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hoemp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjdbs")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fnona"]
+radius = 6.08276
+
+[node name="Heart" type="Area2D"]
+collision_mask = 4
+script = ExtResource("1_1rf3x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hoemp")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("CircleShape2D_fnona")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -21,7 +21,7 @@ func save_game():
 			"is_collected": cat.is_collected,
 			"visible": cat.visible
 		}
-	print("Stany kotków zapisane", Global.cats_state)
+	print("Stany kotków zapisane")
 
 	# Zapis danych do pliku
 	var save_data = {
