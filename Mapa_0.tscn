@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=50 format=4 uid="uid://cg2de6wjkemhw"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_bb18c"]
 [ext_resource type="Texture2D" uid="uid://b6neg4hgcnti1" path="res://assets/sprite sheet 16x16px seamless textures.png" id="1_or2n3"]
@@ -2627,6 +2627,42 @@ texture = ExtResource("12_xptng")
 sources/0 = SubResource("TileSetAtlasSource_vnesj")
 sources/1 = SubResource("TileSetAtlasSource_6588e")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixk1y"]
+atlas = ExtResource("14_wh8nb")
+region = Rect2(8, 214, 16, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiba3"]
+atlas = ExtResource("14_wh8nb")
+region = Rect2(40, 214, 16, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4rmb"]
+atlas = ExtResource("14_wh8nb")
+region = Rect2(72, 214, 16, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4d5a"]
+atlas = ExtResource("14_wh8nb")
+region = Rect2(104, 214, 16, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qygu4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixk1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jiba3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4rmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4d5a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Levels" type="Node2D" groups=["GameManager"]]
 script = ExtResource("1_bb18c")
 
@@ -2666,12 +2702,13 @@ position = Vector2(-88, 80)
 
 [node name="CanvasLayerKC" type="CanvasLayer" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayerKC"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayerKC"]
 position = Vector2(1056, 32)
 scale = Vector2(3, 3)
-texture = ExtResource("14_wh8nb")
-region_enabled = true
-region_rect = Rect2(7.29833, 214.022, 18.4269, 10.0181)
+sprite_frames = SubResource("SpriteFrames_qygu4")
+autoplay = "default"
+frame_progress = 0.861508
+speed_scale = 0.5
 
 [node name="Kitty counter" type="Label" parent="CanvasLayerKC"]
 offset_left = 1080.0
