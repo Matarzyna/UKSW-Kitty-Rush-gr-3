@@ -33,6 +33,10 @@ func reset_cats_state():
 func reset_bushes_state():
 	for bush in bushes_state:
 		bushes_state[bush] = {"is_destroyed": false,"visible": true}
+		
+func reset_chests_state():
+	for chest in chests_state:
+		chests_state[chest] = {"is_opened": false}
 
 func reset_game():
 	reset_kitty_counter()
@@ -40,3 +44,4 @@ func reset_game():
 	reset_position()
 	reset_cats_state()
 	reset_bushes_state()
+	reset_chests_state()
