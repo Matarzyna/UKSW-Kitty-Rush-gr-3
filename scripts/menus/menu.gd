@@ -90,6 +90,7 @@ func save_current_scene():
 		Global.current_scene_state = get_tree().current_scene.duplicate()
 		Global.current_scene_state.name = get_tree().current_scene.name
 		print("Bieżąca scena została zapisana:", Global.current_scene_state.name)
+		SaveManager.save_state()
 	else:
 		print("Nie można zapisać bieżącej sceny.")
 
