@@ -12,10 +12,14 @@ const HEART_SCENE_PATH := "res://Heart.tscn"
 var heart_scene: PackedScene = preload(HEART_SCENE_PATH)
 
 func _ready() -> void:
-	# Połącz zdarzenia wykrycia i opuszczenia obszaru przez gracza z funkcjami
 	life_chest_area_2d.body_entered.connect(_on_body_entered)
 	life_chest_area_2d.body_exited.connect(_on_body_exited)
-	life_chest_sprite.play("closed")  # Ustaw stan początkowy
+	
+	if Global.chests_state.has(name):
+		var state = Global.chests_state[name]
+		set_state(state)
+	else:
+		life_chest_sprite.play("closed")  # Ustaw stan początkowy
 
 func _on_body_entered(body: Node) -> void:
 	if body.name == "Studentka":
@@ -45,3 +49,11 @@ func _spawn_heart() -> void:
 	var heart_instance = heart_scene.instantiate()
 	heart_instance.position = global_position + Vector2(0, 0)
 	get_parent().add_child(heart_instance)
+	
+func set_state(state):
+	is_opened = state.get("is_opened", false)
+	if is_opened:
+		$AnimatedSprite2D.play("opened")  # Ustaw stan otwartej skrzyni
+	else:
+		$AnimatedSprite2D.play("closed")  # Ustaw stan zamkniętej skrzyni
+	print("Stan skrzyni ustawiony:", name, "is_opened:", is_opened)

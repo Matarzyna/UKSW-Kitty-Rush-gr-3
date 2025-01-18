@@ -11,7 +11,8 @@ func _on_body_entered(_body: Node2D) -> void:
 		
 		var game_manager = get_tree().get_nodes_in_group("GameManager")[0]
 		if game_manager and game_manager.has_method("update_ui_life"):
-			game_manager.check_life(Global.life)
+			game_manager.update_ui_life(Global.life)
+			print("Zaaktualizowano UI życ, na:", Global.life)
 		else:
 			print("Nie znaleziono GameManager lub brak metody update_ui_life")
 	

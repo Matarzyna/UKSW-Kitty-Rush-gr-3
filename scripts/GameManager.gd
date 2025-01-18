@@ -22,19 +22,28 @@ func check_life(life: int):
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("default")
 	elif life == 4:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("default")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D3.play("default")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D2.play("default")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("default")
 	elif life == 3:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D3.play("default")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D2.play("default")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("default")
 	elif life == 2:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D3.play("nothing")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D2.play("default")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("default")
 	elif life == 1:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D3.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D2.play("nothing")
-		
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("default")
 	elif life == 0:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")

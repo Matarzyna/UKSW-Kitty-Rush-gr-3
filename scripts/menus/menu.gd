@@ -63,14 +63,12 @@ func _on_resume_pressed() -> void:
 	else:
 		print("PauseCanvas not found!")
 
-
 func _on_pause_button_pressed() -> void:
 	print("Pause pressed")
 	if Global.pause_menu:
 		Global.pause_menu.pause()
 	else:
 		print("PauseCanvas not found!")
-
 
 func _on_back_pressed() -> void:
 	print("Back pressed")
@@ -88,6 +86,7 @@ func save_current_scene():
 	else:
 		print("Nie można zapisać bieżącej sceny.")
 
+
 func load_previous_scene():
 	if Global.current_scene_state:
 		get_tree().current_scene.queue_free()
@@ -101,4 +100,3 @@ func load_previous_scene():
 	
 	if Global.paused == true:
 		Global.pause_menu.resume()
-		

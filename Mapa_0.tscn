@@ -2663,16 +2663,15 @@ tile_set = SubResource("TileSet_3waaj")
 tile_map_data = PackedByteArray("AAD8/wMAAQACAAsAAAD9/wMAAQADAAkAAAD7/wMAAQAAAAkAAAD8/wIAAQAGAAsAAAD7/wcAAQACAAcAAAD8/wcAAQABAAcAAAD8/wYAAQAAAAcAAAD9/wcAAQADAAcAAAADAAYAAAAEAAIAAAAEAAYAAAAFAAIAAAAXAAYAAQAHAAMAAAA=")
 tile_set = SubResource("TileSet_1ocjt")
 
-[node name="life_chest" parent="." instance=ExtResource("24_woslb")]
-position = Vector2(-32, 80)
+[node name="Chests" type="Node" parent="."]
+
+[node name="life_chest" parent="Chests" instance=ExtResource("24_woslb")]
+position = Vector2(-16, 80)
 
 [node name="Studentka" parent="." instance=ExtResource("6_5eior")]
 position = Vector2(-88, 80)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_g4ab4")]
-
-[node name="flag" parent="." instance=ExtResource("9_efkol")]
-position = Vector2(168, 144)
 
 [node name="Bushes" type="Node2D" parent="."]
 position = Vector2(200, 160)
@@ -3051,6 +3050,9 @@ position = Vector2(-72, 80)
 
 [node name="flag5" parent="Checkpoints" instance=ExtResource("9_efkol")]
 position = Vector2(1088, 16)
+
+[node name="flag" parent="Checkpoints" instance=ExtResource("9_efkol")]
+position = Vector2(168, 144)
 
 [node name="PauseCanvas" parent="." instance=ExtResource("22_kyv12")]
 

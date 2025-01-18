@@ -7,10 +7,11 @@ var cat_counter = 0
 var life = 5
 var globalLife = 5
 var death_position = Vector2(-104,80)
+var current_position = Vector2(-104,80)
 
 var bushes_state = {}  # Przechowuje stany krzaków
 var cats_state = {}  # Przechowuje stany kotków
-
+var chests_state = {}  # Przechowuje stany skrzynek
 
 func set_paused(is_paused):
 	paused = is_paused

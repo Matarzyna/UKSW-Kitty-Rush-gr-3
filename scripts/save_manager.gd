@@ -22,11 +22,21 @@ func save_game():
 			"visible": cat.visible
 		}
 	print("Stany kotków zapisane")
+	
+	# Zapisywanie stanów skrzynek
+	var chests = get_tree().get_nodes_in_group("chests")
+	Global.chests_state.clear()
+	for chest in chests:
+		Global.chests_state[chest.name] = {
+			"is_opened": chest.is_opened,
+		}
+	print("Stany kotków zapisane")
 
 	# Zapis danych do pliku
 	var save_data = {
 		"bushes_state": Global.bushes_state,
 		"cats_state": Global.cats_state,
+		"chests_state": Global.chests_state,
 		"player_position": Global.death_position,
 		"GlobalLife": Global.globalLife,
 		"life": Global.life,
@@ -49,7 +59,9 @@ func load_game():
 		Global.bushes_state = save_data.get("bushes_state", {})
 		print("Stany krzaków załadowane")
 		Global.cats_state = save_data.get("cats_state", {})
-		print("Stany kotów załadowane", Global.cats_state)
+		print("Stany kotów załadowane")
+		Global.chests_state = save_data.get("chests_state", {})
+		print("Stany skrzynek załadowane")
 
 		# Wczytaj inne dane globalne
 		Global.death_position = save_data.get("player_position", Vector2(0, 0))
