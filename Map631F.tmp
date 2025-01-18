@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=60 format=4 uid="uid://cg2de6wjkemhw"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_bb18c"]
 [ext_resource type="Texture2D" uid="uid://b6neg4hgcnti1" path="res://assets/sprite sheet 16x16px seamless textures.png" id="1_or2n3"]
@@ -27,7 +27,6 @@
 [ext_resource type="Script" path="res://pułapka.gd" id="25_n0km4"]
 [ext_resource type="Texture2D" uid="uid://ca6udvfwpd5s0" path="res://assets/trap/trap1.png" id="26_gyjvf"]
 [ext_resource type="PackedScene" uid="uid://id0l3ei3a4pe" path="res://killzone.tscn" id="26_h3t0c"]
-[ext_resource type="Texture2D" uid="uid://c5bf6tr0kpedt" path="res://assets/trap/trap0.png" id="27_om54f"]
 [ext_resource type="Texture2D" uid="uid://oncqd0kpsbja" path="res://assets/trap/trap2.png" id="27_pvxnq"]
 [ext_resource type="Texture2D" uid="uid://dtchc4oqw7g3y" path="res://assets/trap/trap3.png" id="28_r6xc8"]
 [ext_resource type="Texture2D" uid="uid://byqefp04w4hw4" path="res://assets/trap/trap4.png" id="29_rgqoh"]
@@ -2649,9 +2648,6 @@ height = 18.3663
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("27_om54f")
-}, {
-"duration": 1.0,
 "texture": ExtResource("26_gyjvf")
 }, {
 "duration": 1.0,
@@ -3139,7 +3135,7 @@ scale = Vector2(1.64847, 0.846074)
 shape = SubResource("CapsuleShape2D_uisqe")
 
 [node name="Timer" type="Timer" parent="Pułapka"]
-wait_time = 3.0
+wait_time = 2.0
 autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pułapka"]
