@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=43 format=4 uid="uid://cg2de6wjkemhw"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_bb18c"]
 [ext_resource type="Texture2D" uid="uid://b6neg4hgcnti1" path="res://assets/sprite sheet 16x16px seamless textures.png" id="1_or2n3"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://csnejn2m0uimx" path="res://wrogowie_tscn/fast_wrogowieU_D.tscn" id="14_wrn8i"]
 [ext_resource type="PackedScene" uid="uid://cf2nminokdbg8" path="res://Pause.tscn" id="22_kyv12"]
 [ext_resource type="PackedScene" uid="uid://dqs3fqatf5flq" path="res://GameOver.tscn" id="23_3sqkn"]
+[ext_resource type="PackedScene" uid="uid://bpj321wy8c826" path="res://game_chest.tscn" id="24_eufw4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_843ii"]
 texture = ExtResource("4_q38bg")
@@ -3051,3 +3052,6 @@ position = Vector2(1088, 16)
 [node name="PauseCanvas" parent="." instance=ExtResource("22_kyv12")]
 
 [node name="GameOverCanvas" parent="." instance=ExtResource("23_3sqkn")]
+
+[node name="game_chest" parent="." instance=ExtResource("24_eufw4")]
+position = Vector2(-23, 82)
