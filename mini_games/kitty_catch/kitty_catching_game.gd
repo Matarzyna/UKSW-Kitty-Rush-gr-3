@@ -13,7 +13,9 @@ var isCatchComplete := false  # Flaga oznaczająca zakończenie łapania
 var is_game_active := false  # Czy gra jest aktywna
 
 func _ready() -> void:
-
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	if target:
+		target.process_mode = Node.PROCESS_MODE_ALWAYS
 	# Ukryj kota na starcie
 	if kitty_to_catch:
 		kitty_to_catch.visible = false
@@ -94,10 +96,12 @@ func _close_game() -> void:
 func _on_target_target_entered() -> void:
 	# Zdarzenie: kot został złapany
 	onCatch = true
+	print("kotek w target")
 
 func _on_target_target_exited() -> void:
 	# Zdarzenie: kot uciekł
 	onCatch = false
+	print("kotek out target")
 
 func _on_minigame_exit_pressed() -> void:
 	_close_game()

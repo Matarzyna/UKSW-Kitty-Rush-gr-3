@@ -64,7 +64,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_up6eu"]
 radius = 5.09902
 
-[node name="SlimeUD" type="Node2D"]
+[node name="SlimeUD" type="Node2D" groups=["main_game_elements"]]
 script = ExtResource("1_g7xnq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

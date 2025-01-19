@@ -27,7 +27,7 @@ func _open_chest() -> void:
 	_start_minigame()
 
 func _start_minigame() -> void:
-	
+	pause()
 	var minigame_scene = load("res://mini_games/kitty_catch/kitty_catch_game.tscn")
 	if not minigame_scene:
 		print("Błąd: Nie udało się załadować minigry.")
@@ -45,3 +45,15 @@ func _start_minigame() -> void:
 
 func _on_minigame_finished() -> void:
 	print("Minigra zakończona! Kontynuuj grę.")
+	resume()
+
+func resume():
+	Global.set_paused(false)
+	for node in get_tree().get_nodes_in_group("main_game_elements"):
+		node.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	
+func pause():
+	Global.set_paused(true)
+	for node in get_tree().get_nodes_in_group("main_game_elements"):
+		node.process_mode = Node.PROCESS_MODE_DISABLED
