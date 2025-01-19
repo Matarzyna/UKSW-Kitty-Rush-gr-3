@@ -8,12 +8,12 @@ func save_game():
 	var save_data = {
 		"bushes_state": Global.bushes_state,
 		"cats_state": Global.cats_state,
-		"gruby_cats_state": Global.gruby_cats_state,
 		"chests_state": Global.chests_state,
 		"player_position": Global.death_position,
 		"GlobalLife": Global.globalLife,
 		"life": Global.life,
-		"cat_counter": Global.cat_counter
+		"cat_counter": Global.cat_counter,
+		"gruby_cat_counter": Global.gruby_cat_counter
 	}
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
 	if file:
@@ -37,8 +37,6 @@ func load_game():
 		print("Stany krzaków załadowane")
 		Global.cats_state = save_data.get("cats_state", {})
 		print("Stany kotków załadowane")
-		Global.gruby_cats_state = save_data.get("gruby_cats_state", {})
-		print("Stany grubych kotków załadowane")
 		Global.chests_state = save_data.get("chests_state", {})
 		print("Stany skrzynek załadowane")
 
@@ -47,6 +45,7 @@ func load_game():
 		Global.globalLife = save_data.get("GlobalLife", 5)
 		Global.life = save_data.get("life", 5)
 		Global.cat_counter = save_data.get("cat_counter", 0)
+		Global.gruby_cat_counter = save_data.get("gruby_cat_counter", 0)
 		print("Gra wczytana!")
 
 func save_state():
