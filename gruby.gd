@@ -25,6 +25,8 @@ func _on_body_entered(_body: Node2D) -> void:
 	print(name, is_collected)
 
 func set_state(state):
+	$AnimatedSprite2D.animation = "Gruby"  # Ustaw animację
+	$AnimatedSprite2D.play() 
 	is_collected = state.get("is_collected", false)
 	visible = state.get("visible", true)
 	$CollisionShape2D.disabled = is_collected

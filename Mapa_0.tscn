@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=68 format=4 uid="uid://cg2de6wjkemhw"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_bb18c"]
 [ext_resource type="Texture2D" uid="uid://b6neg4hgcnti1" path="res://assets/sprite sheet 16x16px seamless textures.png" id="1_or2n3"]
@@ -28,7 +28,6 @@
 [ext_resource type="PackedScene" uid="uid://dqs3fqatf5flq" path="res://GameOver.tscn" id="23_3sqkn"]
 [ext_resource type="PackedScene" uid="uid://cm2at1iwskcn4" path="res://life_chest.tscn" id="24_woslb"]
 [ext_resource type="PackedScene" uid="uid://b3gc1juewcuni" path="res://ogien_po_3.tscn" id="27_usaxl"]
-[ext_resource type="PackedScene" uid="uid://dfjvu2ng56umh" path="res://gruby_kot.tscn" id="28_fp5va"]
 [ext_resource type="Script" path="res://fat_cat_counter.gd" id="30_6ca44"]
 [ext_resource type="Script" path="res://scripts/Fatlabel.gd" id="30_hsemi"]
 [ext_resource type="Texture2D" uid="uid://nalohrocm7i8" path="res://assets/GrubyKot/1.png" id="30_n0e2n"]
@@ -3892,7 +3891,7 @@ position = Vector2(-88, 80)
 position = Vector2(816.592, 254.721)
 
 [node name="life_chest2" parent="Chests" instance=ExtResource("24_woslb")]
-position = Vector2(12.3967, 79.6409)
+position = Vector2(488, 144)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_g4ab4")]
 
@@ -3920,7 +3919,6 @@ vertical_alignment = 1
 script = ExtResource("3_o8enq")
 
 [node name="Bushes" type="Node2D" parent="."]
-visible = false
 position = Vector2(200, 160)
 
 [node name="Bush18" parent="Bushes" instance=ExtResource("7_pcpim")]
@@ -4316,11 +4314,6 @@ position = Vector2(1624, 176)
 
 [node name="Gruby" type="Node2D" parent="." groups=["FatCats"]]
 
-[node name="GrubyKot" parent="Gruby" instance=ExtResource("28_fp5va")]
-z_index = 1
-position = Vector2(-37.6015, 82.1138)
-scale = Vector2(0.400002, 0.400002)
-
 [node name="FatCatCounter" type="CanvasLayer" parent="."]
 script = ExtResource("30_6ca44")
 
@@ -4346,5 +4339,5 @@ animation = &"Gruby"
 [node name="FatCatChest" type="Node2D" parent="." groups=["chests"]]
 
 [node name="CatChest" parent="FatCatChest" instance=ExtResource("42_3hjtf")]
-position = Vector2(-8, 80)
+position = Vector2(-248, -16)
 scale = Vector2(0.84, 0.84)
