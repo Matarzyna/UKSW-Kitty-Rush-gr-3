@@ -3888,10 +3888,13 @@ position = Vector2(-88, 80)
 [node name="Chests" type="Node" parent="."]
 
 [node name="life_chest" parent="Chests" instance=ExtResource("24_woslb")]
-position = Vector2(816.592, 254.721)
+position = Vector2(872, 176)
 
 [node name="life_chest2" parent="Chests" instance=ExtResource("24_woslb")]
 position = Vector2(488, 144)
+
+[node name="life_chest3" parent="Chests" instance=ExtResource("24_woslb")]
+position = Vector2(304, 160)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_g4ab4")]
 
@@ -4340,4 +4343,12 @@ animation = &"Gruby"
 
 [node name="CatChest" parent="FatCatChest" instance=ExtResource("42_3hjtf")]
 position = Vector2(-248, -16)
+scale = Vector2(0.84, 0.84)
+
+[node name="CatChest2" parent="FatCatChest" instance=ExtResource("42_3hjtf")]
+position = Vector2(16, 80)
+scale = Vector2(0.84, 0.84)
+
+[node name="CatChest3" parent="FatCatChest" instance=ExtResource("42_3hjtf")]
+position = Vector2(328, 160)
 scale = Vector2(0.84, 0.84)
