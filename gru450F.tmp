@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://dfjvu2ng56umh"]
+
+[ext_resource type="Script" path="res://gruby.gd" id="1_12107"]
+[ext_resource type="Texture2D" uid="uid://nalohrocm7i8" path="res://assets/GrubyKot/1.png" id="2_i0csy"]
+[ext_resource type="Texture2D" uid="uid://bshtf1yaa7aoh" path="res://assets/GrubyKot/2.png" id="3_544dq"]
+[ext_resource type="Texture2D" uid="uid://bq7o7os674qvy" path="res://assets/GrubyKot/3.png" id="4_kwldq"]
+[ext_resource type="Texture2D" uid="uid://4vqt6lkfa6x2" path="res://assets/GrubyKot/4.png" id="5_kcw3v"]
+[ext_resource type="Texture2D" uid="uid://ca6txaqtxxg1a" path="res://assets/GrubyKot/5.png" id="6_olj51"]
+[ext_resource type="Texture2D" uid="uid://c28gdctqy02te" path="res://assets/GrubyKot/6.png" id="7_glctu"]
+[ext_resource type="Texture2D" uid="uid://133shwfx0h5n" path="res://assets/GrubyKot/7.png" id="8_linh7"]
+[ext_resource type="Texture2D" uid="uid://d4dcqecgfe1wc" path="res://assets/GrubyKot/8.png" id="9_os8s4"]
+[ext_resource type="Texture2D" uid="uid://dl0yhcc2ahv0v" path="res://assets/GrubyKot/9.png" id="10_gyaqj"]
+[ext_resource type="Texture2D" uid="uid://c7r2vmeobcc4e" path="res://assets/GrubyKot/10.png" id="11_utaug"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h7rxn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i0csy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_544dq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_544dq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i0csy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kwldq")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_kcw3v")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_olj51")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_glctu")
+}, {
+"duration": 2.0,
+"texture": ExtResource("8_linh7")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_glctu")
+}, {
+"duration": 2.0,
+"texture": ExtResource("8_linh7")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_glctu")
+}, {
+"duration": 2.0,
+"texture": ExtResource("9_os8s4")
+}, {
+"duration": 2.0,
+"texture": ExtResource("10_gyaqj")
+}, {
+"duration": 2.0,
+"texture": ExtResource("11_utaug")
+}],
+"loop": true,
+"name": &"Gruby",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yn162"]
+radius = 16.0
+
+[node name="GrubyKot" type="Area2D" groups=["FatCats"]]
+collision_mask = 4
+script = ExtResource("1_12107")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h7rxn")
+animation = &"Gruby"
+frame_progress = 0.694472
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 4
+position = Vector2(-2.80869, 5.07333)
+shape = SubResource("CircleShape2D_yn162")
