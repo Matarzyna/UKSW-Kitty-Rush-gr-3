@@ -13,11 +13,10 @@ var first_activation_done: bool = false  # Flaga wskazująca, czy pierwsze uruch
 # Funkcja aktywująca pułapkę
 func activate_trap():
 	if not first_activation_done:  # Jeśli to pierwsze uruchomienie
-		print("Pułapka aktywacja - opóźnienie startu animacji:", animation_start_delay)
 		await get_tree().create_timer(animation_start_delay).timeout  # Poczekaj na opóźnienie przed animacją
 		first_activation_done = true
 
-	print("Pułapka aktywowana")
+
 	is_active = true
 	$Area2D.monitoring = true  # Włącz kolizje, pułapka zadaje obrażenia
 	$AnimatedSprite2D.animation = "default"  # Ustaw animację
@@ -31,13 +30,13 @@ func activate_trap():
 
 # Funkcja dezaktywująca pułapkę
 func deactivate_trap():
-	print("Pułapka dezaktywowana")
+
 	is_active = false
 	$Area2D.monitoring = false  # Wyłącz kolizje, pułapka nie zadaje obrażeń
 	$AnimatedSprite2D.stop()  # Zatrzymaj animację
 	$AnimatedSprite2D.frame = 0  # Zresetuj animację do pierwszej klatki
 	await get_tree().create_timer(pause_duration).timeout  # Czekaj na pauzę
-	print("Pułapka gotowa do ponownej aktywacji")
+
 	activate_trap()  # Uruchom cykl ponownie
 
 # Funkcja aktywująca pułapkę na skutek rozsiewania ognia
@@ -50,7 +49,6 @@ func spread_fire(delay):
 func _on_Area2D_body_entered(body):
 	if is_active and body.name == "Studentka":  # Sprawdź, czy obiekt to gracz
 		body.take_damage(damage)  # Wywołaj funkcję zadawania obrażeń w skrypcie gracza
-		print("Gracz otrzymał obrażenia:", damage)
 
 # Inicjalizacja
 func _ready():

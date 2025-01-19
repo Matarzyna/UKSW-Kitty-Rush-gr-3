@@ -74,6 +74,7 @@ animations = [{
 radius = 16.0
 
 [node name="GrubyKot" type="Area2D" groups=["FatCats"]]
+z_index = 2
 collision_mask = 4
 script = ExtResource("1_12107")
 

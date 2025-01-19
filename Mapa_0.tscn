@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=69 format=4 uid="uid://cg2de6wjkemhw"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_bb18c"]
 [ext_resource type="Texture2D" uid="uid://b6neg4hgcnti1" path="res://assets/sprite sheet 16x16px seamless textures.png" id="1_or2n3"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://d4dcqecgfe1wc" path="res://assets/GrubyKot/8.png" id="37_m6koq"]
 [ext_resource type="Texture2D" uid="uid://dl0yhcc2ahv0v" path="res://assets/GrubyKot/9.png" id="38_8i5rw"]
 [ext_resource type="Texture2D" uid="uid://c7r2vmeobcc4e" path="res://assets/GrubyKot/10.png" id="39_0xfqp"]
+[ext_resource type="PackedScene" uid="uid://clu67betaobjv" path="res://CatChest.tscn" id="42_3hjtf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_843ii"]
 texture = ExtResource("4_q38bg")
@@ -3888,10 +3889,10 @@ position = Vector2(-88, 80)
 [node name="Chests" type="Node" parent="."]
 
 [node name="life_chest" parent="Chests" instance=ExtResource("24_woslb")]
-position = Vector2(488, 144)
+position = Vector2(816.592, 254.721)
 
 [node name="life_chest2" parent="Chests" instance=ExtResource("24_woslb")]
-position = Vector2(-240, -16)
+position = Vector2(12.3967, 79.6409)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_g4ab4")]
 
@@ -4316,6 +4317,7 @@ position = Vector2(1624, 176)
 [node name="Gruby" type="Node2D" parent="." groups=["FatCats"]]
 
 [node name="GrubyKot" parent="Gruby" instance=ExtResource("28_fp5va")]
+z_index = 1
 position = Vector2(-37.6015, 82.1138)
 scale = Vector2(0.400002, 0.400002)
 
@@ -4340,3 +4342,9 @@ position = Vector2(1183.85, 36.5875)
 scale = Vector2(1.49163, 1.4331)
 sprite_frames = SubResource("SpriteFrames_30bi1")
 animation = &"Gruby"
+
+[node name="FatCatChest" type="Node2D" parent="." groups=["chests"]]
+
+[node name="CatChest" parent="FatCatChest" instance=ExtResource("42_3hjtf")]
+position = Vector2(-8, 80)
+scale = Vector2(0.84, 0.84)
