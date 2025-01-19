@@ -12,8 +12,7 @@ var target_tolerance := 5  # Tolerancja odległości, aby zapobiec wibracjom
 @onready var target_size: Vector2 = Vector2(64, 64)
 
 func _ready() -> void:
-	# Jeśli `target_size` powinno być określone na podstawie np. Sprite:
-	var sprite := $Sprite2D # Zmień ścieżkę na właściwą dla Twojej sceny
+	var sprite := $Sprite2D 
 	if sprite and sprite is Sprite2D:
 		target_size = sprite.texture.get_size() * sprite.scale
 
@@ -66,7 +65,6 @@ func _clamp_position_to_container(in_position: Vector2) -> Vector2:
 	var half_height := target_size.y / 2
 
 	# Ogranicz pozycję, biorąc pod uwagę rozmiar targetu
-
 	in_position.x = clamp(in_position.x, container_rect.position.x + half_width, container_rect.position.x + container_rect.size.x - half_width)
 	in_position.y = clamp(in_position.y, container_rect.position.y + half_height, container_rect.position.y + container_rect.size.y - half_height)
 

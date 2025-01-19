@@ -3055,3 +3055,6 @@ position = Vector2(1088, 16)
 
 [node name="game_chest" parent="." instance=ExtResource("24_eufw4")]
 position = Vector2(-23, 82)
+
+[node name="SlimeUD" parent="." instance=ExtResource("12_pkg0m")]
+position = Vector2(-105, 87)

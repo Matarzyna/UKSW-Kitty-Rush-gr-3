@@ -22,7 +22,6 @@ func _ready() -> void:
 	else:
 		print("Error: KittyToCatch is not assigned or null.")
 	
-	
 	# Wyświetl wiadomość "Złap kotka!" na początku
 	message_label.text = "Catch the kitty!"
 	message_label.visible = true
@@ -92,6 +91,7 @@ func _close_game() -> void:
 	print("Zamykanie gry...")
 	_cat_caught()
 	queue_free() 
+	resume()
 
 func _on_target_target_entered() -> void:
 	# Zdarzenie: kot został złapany
@@ -105,3 +105,8 @@ func _on_target_target_exited() -> void:
 
 func _on_minigame_exit_pressed() -> void:
 	_close_game()
+
+func resume():
+	Global.set_paused(false)
+	for node in get_tree().get_nodes_in_group("main_game_elements"):
+		node.process_mode = Node.PROCESS_MODE_INHERIT

@@ -35,24 +35,8 @@ func _start_minigame() -> void:
 
 	var minigame_instance = minigame_scene.instantiate()
 	get_tree().root.add_child(minigame_instance)
-	
-	# Sprawienie, aby minigra działała mimo pauzy
-	minigame_instance.process_mode = Node.PROCESS_MODE_ALWAYS
-
-	if minigame_instance.has_signal("minigame_finished"):
-		minigame_instance.connect("minigame_finished", self, "_on_minigame_finished")
 
 
-func _on_minigame_finished() -> void:
-	print("Minigra zakończona! Kontynuuj grę.")
-	resume()
-
-func resume():
-	Global.set_paused(false)
-	for node in get_tree().get_nodes_in_group("main_game_elements"):
-		node.process_mode = Node.PROCESS_MODE_INHERIT
-	
-	
 func pause():
 	Global.set_paused(true)
 	for node in get_tree().get_nodes_in_group("main_game_elements"):
