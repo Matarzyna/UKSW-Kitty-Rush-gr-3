@@ -86,3 +86,5 @@ frame_progress = 0.694472
 visibility_layer = 4
 position = Vector2(-2.80869, 5.07333)
 shape = SubResource("CircleShape2D_yn162")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

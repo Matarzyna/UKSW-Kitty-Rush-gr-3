@@ -18,7 +18,7 @@ func _on_body_entered(_body: Node2D) -> void:
 		return
 	is_collected = true
 	
-	Global.gruby_cats_state += 1
+	Global.gruby_cat_counter += 1
 	Global.gruby_cats_state[name] = {"is_collected": is_collected, "visible": false}
 	$CollisionShape2D.call_deferred("set_disabled", true)
 	call_deferred("set_visible", false)
