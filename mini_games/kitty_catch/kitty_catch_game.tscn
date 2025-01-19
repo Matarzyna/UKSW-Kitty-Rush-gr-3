@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dy1auunt5tt7j"]
+[gd_scene load_steps=16 format=3 uid="uid://dy1auunt5tt7j"]
 
 [ext_resource type="Script" path="res://mini_games/kitty_catch/kitty_catching_game.gd" id="1_o7wxn"]
 [ext_resource type="Texture2D" uid="uid://pv86fw1cnp56" path="res://mini_games/Box_Blank_Square.png" id="2_wd0ow"]
 [ext_resource type="Texture2D" uid="uid://b6wg5igy2pgt4" path="res://mini_games/SlimSlider_Background.png" id="3_u2beh"]
 [ext_resource type="Texture2D" uid="uid://x2ulmbjoy01a" path="res://mini_games/SlimSlider_Base.png" id="4_lwaxb"]
+[ext_resource type="FontFile" uid="uid://7rp3kor7n1xm" path="res://PressStart2P-Regular.ttf" id="5_2egqc"]
 [ext_resource type="PackedScene" uid="uid://d3k431kpr4tug" path="res://mini_games/kitty_catch/target.tscn" id="5_d30mn"]
 [ext_resource type="PackedScene" uid="uid://0dh25jb7pcbd" path="res://mini_games/kitty_catch/kitty_to_catch.tscn" id="6_4fbcw"]
 
@@ -26,6 +27,24 @@ border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rosxc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xryw"]
+bg_color = Color(0.843137, 0.827451, 0.980392, 0.129412)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lap8m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6i61"]
+bg_color = Color(0.854902, 0.815686, 0.976471, 0.0745098)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="Kitty_catching" type="CanvasLayer"]
 process_mode = 3
 metadata/_edit_vertical_guides_ = [781.0]
@@ -39,10 +58,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
+offset_left = -155.0
 offset_top = -150.0
 offset_right = 150.0
-offset_bottom = 150.0
+offset_bottom = 158.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o7wxn")
@@ -52,6 +71,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_kjce3")
@@ -95,12 +116,30 @@ offset_right = 73.0
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_2egqc")
+theme_override_font_sizes/font_size = 12
+
+[node name="minigame_exit" type="Button" parent="kitty_catching_game"]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -13.0
+offset_right = 9.0
+offset_bottom = 7.0
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("5_2egqc")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rosxc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4xryw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lap8m")
+theme_override_styles/normal = SubResource("StyleBoxFlat_t6i61")
+text = "x"
 
 [node name="Target" parent="." instance=ExtResource("5_d30mn")]
-position = Vector2(638, 438)
+position = Vector2(575, 398)
 
 [node name="KittyToCatch" parent="." instance=ExtResource("6_4fbcw")]
-position = Vector2(743, 434)
+position = Vector2(678, 407)
 
+[connection signal="pressed" from="kitty_catching_game/minigame_exit" to="kitty_catching_game" method="_on_minigame_exit_pressed"]
 [connection signal="target_entered" from="Target" to="kitty_catching_game" method="_on_target_target_entered"]
 [connection signal="target_exited" from="Target" to="kitty_catching_game" method="_on_target_target_exited"]

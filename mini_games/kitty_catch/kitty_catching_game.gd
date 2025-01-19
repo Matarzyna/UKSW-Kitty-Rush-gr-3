@@ -67,16 +67,12 @@ func _cat_caught() -> void:
 	# Wywołanie po złapaniu kota
 	print("Kotek złapany!")
 	isCatchComplete = true  # Ustaw flagę, aby zatrzymać aktualizację paska
-	if kitty_to_catch:
-		kitty_to_catch.visible = false  # Ukryj kota
-	else:
-		print("Error: KittyToCatch is not assigned or null.")
-	# Ukryj target
-	if target:
-		target.visible = false
-	else:
-		print("Error: Target is not assigned or null.")
 
+	if kitty_to_catch and is_instance_valid(kitty_to_catch):
+		kitty_to_catch.queue_free()  # Ukryj kota
+	# Usuń target, jeśli istnieje
+	if target and is_instance_valid(target):
+		target.queue_free()
 		
 	# Wyświetl wiadomość
 	message_label.text = "You caught the kitty!"
@@ -92,9 +88,7 @@ func _cat_caught() -> void:
 
 func _close_game() -> void:
 	print("Zamykanie gry...")
-	# Usuń target, jeśli istnieje
-	if target and is_instance_valid(target):
-		target.queue_free()
+	_cat_caught()
 	queue_free() 
 
 func _on_target_target_entered() -> void:
@@ -104,3 +98,6 @@ func _on_target_target_entered() -> void:
 func _on_target_target_exited() -> void:
 	# Zdarzenie: kot uciekł
 	onCatch = false
+
+func _on_minigame_exit_pressed() -> void:
+	_close_game()
