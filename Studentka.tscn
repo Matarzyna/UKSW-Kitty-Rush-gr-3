@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ddmbailvjslmc"]
+[gd_scene load_steps=35 format=3 uid="uid://ddmbailvjslmc"]
 
 [ext_resource type="Script" path="res://scripts/studentka.gd" id="1_h55m5"]
 [ext_resource type="Texture2D" uid="uid://ceybhpiqs3j7w" path="res://assets/Tiny Wonder Forest 1.0/characters/main character/walk and idle.png" id="2_hn12m"]
@@ -247,13 +247,16 @@ animations = [{
 radius = 2.5
 height = 12.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wruns"]
+size = Vector2(16, 16)
+
 [node name="Studentka" type="CharacterBody2D" groups=["player"]]
 collision_layer = 6
 collision_mask = 5
 script = ExtResource("1_h55m5")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 18)
+target_position = Vector2(0, 30)
 collision_mask = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -268,3 +271,8 @@ shape = SubResource("CapsuleShape2D_nod7e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_wruns")

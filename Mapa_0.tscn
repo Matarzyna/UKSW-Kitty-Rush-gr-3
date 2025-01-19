@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cg2de6wjkemhw"]
+[gd_scene load_steps=41 format=4 uid="uid://cg2de6wjkemhw"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_2nhx3"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_bb18c"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dpddvjpok7odc" path="res://assets/Keyboard Letters and Symbols.png" id="12_xptng"]
 [ext_resource type="PackedScene" uid="uid://c2n5cjovfdyn8" path="res://fast_wrogowieL_R.tscn" id="13_8ya4u"]
 [ext_resource type="PackedScene" uid="uid://csnejn2m0uimx" path="res://fast_wrogowieU_D.tscn" id="14_wrn8i"]
+[ext_resource type="PackedScene" uid="uid://b5rot6klfb6bq" path="res://skrzynka.tscn" id="22_ldvn2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_843ii"]
 texture = ExtResource("4_q38bg")
@@ -2837,7 +2838,7 @@ position = Vector2(880, -24)
 [node name="Slimes" type="Node2D" parent="."]
 
 [node name="SlimeUD" parent="Slimes" instance=ExtResource("12_pkg0m")]
-position = Vector2(211.791, 117.755)
+position = Vector2(216, 118)
 
 [node name="slime2" parent="Slimes" instance=ExtResource("6_bx2o1")]
 position = Vector2(456, 96)
@@ -3051,3 +3052,9 @@ position = Vector2(-264, -24)
 
 [node name="flag3" parent="." instance=ExtResource("9_efkol")]
 position = Vector2(-72, 80)
+
+[node name="Skrzynka" parent="." instance=ExtResource("22_ldvn2")]
+position = Vector2(280, 112)
+
+[node name="Skrzynka2" parent="." instance=ExtResource("22_ldvn2")]
+position = Vector2(280, 96)

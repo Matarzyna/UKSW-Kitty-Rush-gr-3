@@ -77,7 +77,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbj3c"]
 radius = 5.09902
 
-[node name="slimeLR" type="Node2D"]
+[node name="slimeLR" type="Node2D" groups=["wrogowie"]]
 script = SubResource("GDScript_exyag")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -95,8 +95,11 @@ target_position = Vector2(9, 0)
 position = Vector2(0, -5)
 target_position = Vector2(-10, 0)
 
-[node name="Killzone" parent="." instance=ExtResource("2_g62j7")]
+[node name="Killzone" parent="." groups=["wrogowie"] instance=ExtResource("2_g62j7")]
+visibility_layer = 8
 position = Vector2(0, -5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" groups=["wrogowie"]]
+top_level = true
+visibility_layer = 8
 shape = SubResource("CircleShape2D_gbj3c")

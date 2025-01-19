@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5rot6klfb6bq"]
+
+[ext_resource type="Script" path="res://scripts/skrzynka.gd" id="1_fk33h"]
+[ext_resource type="Texture2D" uid="uid://dwbbkqxfekf4g" path="res://assets/pixelart_cardboard_box_128x128.png" id="2_qokr8"]
+[ext_resource type="Script" path="res://scripts/killzone_skrzynka.gd" id="3_wnii0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrtw4"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jh2qt"]
+size = Vector2(16, 16.25)
+
+[node name="Skrzynka" type="CharacterBody2D" groups=["Box"]]
+script = ExtResource("1_fk33h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 7.62939e-06)
+scale = Vector2(0.235294, 0.235294)
+texture = ExtResource("2_qokr8")
+region_enabled = true
+region_rect = Rect2(32, 32, 68, 68)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.99, 0.99)
+shape = SubResource("RectangleShape2D_qrtw4")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+visibility_layer = 9
+target_position = Vector2(0, 16)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="Killzone" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("3_wnii0")
+
+[node name="Timer" type="Timer" parent="Killzone"]
+wait_time = 0.6
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 1)
+scale = Vector2(0.99, 0.99)
+shape = SubResource("RectangleShape2D_jh2qt")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(3.8147e-06, 0)
+rotation = 0.802851
+target_position = Vector2(0, 22.5)
+collision_mask = 2
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(-3.8147e-06, 0)
+rotation = -0.802851
+target_position = Vector2(0, 22.5)
+collision_mask = 2
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 10)
+collide_with_areas = true
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
+[connection signal="timeout" from="Killzone/Timer" to="Killzone" method="_on_timer_timeout"]

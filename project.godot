@@ -26,6 +26,9 @@ window/stretch/mode="viewport"
 [global_group]
 
 player=""
+Box=""
+wrogowie=""
+bushes=""
 
 [input]
 
