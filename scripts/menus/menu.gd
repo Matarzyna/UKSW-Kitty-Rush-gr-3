@@ -63,14 +63,12 @@ func _on_resume_pressed() -> void:
 	else:
 		print("PauseCanvas not found!")
 
-
 func _on_pause_button_pressed() -> void:
 	print("Pause pressed")
 	if Global.pause_menu:
 		Global.pause_menu.pause()
 	else:
 		print("PauseCanvas not found!")
-
 
 func _on_back_pressed() -> void:
 	print("Back pressed")
@@ -82,11 +80,20 @@ func _on_exit_button_pressed():
 
 func save_current_scene():
 	if get_tree().current_scene:
+		var player = get_tree().get_nodes_in_group("player")
+		if player.size() > 0:
+			Global.current_position = player[0].global_position
+			print("Pozycja gracza zapisana:", Global.current_position)
+		else:
+			print("Nie znaleziono gracza. Nie zapisano pozycji.")
+		
 		Global.current_scene_state = get_tree().current_scene.duplicate()
 		Global.current_scene_state.name = get_tree().current_scene.name
-		print("Bieżąca scena została zapisana.", Global.current_scene_state.name)
+		print("Bieżąca scena została zapisana:", Global.current_scene_state.name)
+		SaveManager.save_state()
 	else:
 		print("Nie można zapisać bieżącej sceny.")
+
 
 func load_previous_scene():
 	if Global.current_scene_state:
@@ -96,9 +103,17 @@ func load_previous_scene():
 		get_tree().current_scene = previous_scene_instance
 		print("Poprzednia scena została załadowana.")
 		Global.current_scene_state = null
+
+		# Sprawdź, czy gracz istnieje
+		var player = get_tree().get_nodes_in_group("player")
+		if player.size() > 0:
+			player[0].global_position = Global.current_position
+			print("Pozycja gracza ustawiona na:", Global.current_position)
+		else:
+			# Ustawienie pozycji później
+			print("Gracz jeszcze nie istnieje. Pozycja zostanie ustawiona później.")
 	else:
 		print("Brak zapisanej sceny do załadowania!")
 	
 	if Global.paused == true:
 		Global.pause_menu.resume()
-		

@@ -10,7 +10,7 @@ func _ready() -> void:
 		player.reset_to_checkpoint()
 	else:
 		print("Nie znaleziono gracza w grupie 'player'!")
-	$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play(str(Global.globalLife))
+	#$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play(str(Global.globalLife))
 	check_life(Global.life)
 
 func check_life(life: int):
@@ -22,19 +22,28 @@ func check_life(life: int):
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("default")
 	elif life == 4:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("default")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D3.play("default")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D2.play("default")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("default")
 	elif life == 3:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D3.play("default")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D2.play("default")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("default")
 	elif life == 2:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D3.play("nothing")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D2.play("default")
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("default")
 	elif life == 1:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D3.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D2.play("nothing")
-		
+		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D.play("default")
 	elif life == 0:
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D5.play("nothing")
 		$CanvasLayer/Container/HBoxContainer2/AnimatedSprite2D4.play("nothing")
@@ -74,8 +83,8 @@ func force_death():
 
 func update_ui_life(life: int):
 	if player != null:
-		var globalLife = Global.globalLife
-		$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play(str(Global.globalLife))
+		#var globalLife = Global.globalLife
+		#$CanvasLayer/Container/HBoxContainer3/AnimatedSprite2D.play(str(Global.globalLife))
 		check_life(life)
 
 func reset_bushes():

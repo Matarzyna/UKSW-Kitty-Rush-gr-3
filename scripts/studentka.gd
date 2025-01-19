@@ -15,6 +15,10 @@ var start_position = Vector2.ZERO  # Pozycja początkowa ruchu
 var is_destroy = false
 var is_lost_hp = false
 
+func _ready():
+	if Global.current_position:
+		global_position = Global.current_position
+		print("Gracz ustawiony na pozycję:", global_position)
 
 func _physics_process(delta):
 	if is_moving:

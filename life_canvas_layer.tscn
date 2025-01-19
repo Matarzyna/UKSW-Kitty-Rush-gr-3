@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkg5oq12g8h0l"]
+[gd_scene load_steps=15 format=3 uid="uid://dkg5oq12g8h0l"]
 
 [ext_resource type="Texture2D" uid="uid://cjrkkj8u6a6vj" path="res://assets/Sprites/12-Live and Coins/Live Bar.png" id="1_3euw1"]
 [ext_resource type="Texture2D" uid="uid://c8wcxcinb4kil" path="res://assets/Sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="2_7l5ot"]
-[ext_resource type="Texture2D" uid="uid://ks644kd7kyva" path="res://assets/Tiny Wonder Forest 1.0/tilemaps/bridges.png" id="3_74gor"]
-[ext_resource type="Texture2D" uid="uid://7kjlneqch6j3" path="res://assets/Sprites/12-Live and Coins/Numbers (6x8).png" id="3_pb726"]
+[ext_resource type="Texture2D" uid="uid://dsowsn637f53x" path="res://assets/GrubyKot/ramka.png" id="3_7t7t5"]
 [ext_resource type="Texture2D" uid="uid://d4lwm7w1woh2h" path="res://assets/Tiny Wonder Forest 1.0/characters/main character/portrait female.png" id="4_872bc"]
+[ext_resource type="Script" path="res://scripts/global_life.gd" id="4_kiqix"]
+[ext_resource type="FontFile" uid="uid://7rp3kor7n1xm" path="res://PressStart2P-Regular.ttf" id="4_pjyb1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ui3x"]
 atlas = ExtResource("2_7l5ot")
@@ -65,81 +66,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"nothing",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8w0dg"]
-atlas = ExtResource("3_pb726")
-region = Rect2(54, 0, 6, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kl8yv"]
-atlas = ExtResource("3_pb726")
-region = Rect2(0, 0, 6, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6dijw"]
-atlas = ExtResource("3_pb726")
-region = Rect2(6, 0, 6, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_skvwy"]
-atlas = ExtResource("3_pb726")
-region = Rect2(12, 0, 6, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1rv0g"]
-atlas = ExtResource("3_pb726")
-region = Rect2(18, 0, 6, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_henov"]
-atlas = ExtResource("3_pb726")
-region = Rect2(24, 0, 6, 8)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jlhib"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8w0dg")
-}],
-"loop": true,
-"name": &"0",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kl8yv")
-}],
-"loop": true,
-"name": &"1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6dijw")
-}],
-"loop": true,
-"name": &"2",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_skvwy")
-}],
-"loop": true,
-"name": &"3",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1rv0g")
-}],
-"loop": true,
-"name": &"4",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_henov")
-}],
-"loop": true,
-"name": &"5",
 "speed": 5.0
 }]
 
@@ -241,26 +167,36 @@ offset_left = 929.0
 offset_top = -3.0
 offset_right = 1151.0
 offset_bottom = 65.0
-texture = ExtResource("3_74gor")
-region_rect = Rect2(47, 207, 50, 45)
+scale = Vector2(1.59625, 1.33867)
+texture = ExtResource("3_7t7t5")
+region_rect = Rect2(12, -1.5, 444, 261)
+
+[node name="GlobalLife" type="Label" parent="Container"]
+layout_mode = 2
+offset_left = 1000.73
+offset_top = 9.92126
+offset_right = 1050.73
+offset_bottom = 69.9213
+scale = Vector2(0.953671, 1.14543)
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("4_pjyb1")
+theme_override_font_sizes/font_size = 33
+text = "0
+"
+vertical_alignment = 1
+script = ExtResource("4_kiqix")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Container"]
 clip_contents = true
 layout_mode = 0
-offset_left = 958.0
+offset_left = 937.0
 offset_top = 10.0
-offset_right = 1028.0
-offset_bottom = 49.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Container/HBoxContainer3"]
-position = Vector2(54.7508, 20.992)
-scale = Vector2(5.55236, 5.502)
-sprite_frames = SubResource("SpriteFrames_jlhib")
-animation = &"4"
+offset_right = 995.0
+offset_bottom = 76.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Container/HBoxContainer3"]
-position = Vector2(22.0554, 19.5)
-scale = Vector2(0.887477, 0.902439)
+position = Vector2(28.6157, 26.8417)
+scale = Vector2(1.22063, 1.24121)
 texture = ExtResource("4_872bc")
 region_enabled = true
 region_rect = Rect2(13, 3, 44, 41)
