@@ -31,7 +31,8 @@ collision_mask = 3
 collide_with_areas = true
 
 [node name="Killzone" type="Area2D" parent="."]
-collision_mask = 2
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("3_wnii0")
 
 [node name="Timer" type="Timer" parent="Killzone"]
@@ -59,5 +60,6 @@ collision_mask = 2
 target_position = Vector2(0, 10)
 collide_with_areas = true
 
+[connection signal="area_entered" from="Killzone" to="." method="_on_killzone_area_entered"]
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
 [connection signal="timeout" from="Killzone/Timer" to="Killzone" method="_on_timer_timeout"]

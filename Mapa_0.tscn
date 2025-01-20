@@ -2667,7 +2667,7 @@ tile_set = SubResource("TileSet_1ocjt")
 position = Vector2(536, 112)
 
 [node name="Studentka" parent="." instance=ExtResource("6_5eior")]
-position = Vector2(-88, 80)
+position = Vector2(1864, 272)
 
 [node name="flag" parent="." instance=ExtResource("9_efkol")]
 position = Vector2(168, 144)
@@ -3058,3 +3058,15 @@ position = Vector2(280, 112)
 
 [node name="Skrzynka2" parent="." instance=ExtResource("22_ldvn2")]
 position = Vector2(280, 96)
+
+[node name="Skrzynka3" parent="." instance=ExtResource("22_ldvn2")]
+position = Vector2(1822, 240)
+
+[node name="Skrzynka4" parent="." instance=ExtResource("22_ldvn2")]
+position = Vector2(1822, 256)
+
+[node name="SlimeUD" parent="." instance=ExtResource("12_pkg0m")]
+position = Vector2(1822, 326)
+
+[node name="Bush" parent="." instance=ExtResource("7_pcpim")]
+position = Vector2(1822, 272)

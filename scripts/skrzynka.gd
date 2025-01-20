@@ -75,5 +75,16 @@ func move_false():
 	is_moving = false
 
 
-func _on_killzone_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+
+
+
+func _on_killzone_area_entered(area: Area2D) -> void:
+	print("Obszar wykryty:", area.name)
+
+	if area.is_in_group("wrogowie"):
+		print("Wróg w killzone! Usuwanie całego body...")
+
+		# Pobranie nadrzędnego noda i jego usunięcie
+		var parent = area.get_parent()
+		if parent:
+			parent.queue_free()
